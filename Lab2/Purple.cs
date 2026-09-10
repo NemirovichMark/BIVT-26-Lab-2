@@ -10,7 +10,6 @@ namespace Lab2
         public int Task1(int n, int p, int h)
         {
             int answer = 0;
-            int dp = p;
             int sum = 0;
             for (int i = 0; i < n; i++)
             {
