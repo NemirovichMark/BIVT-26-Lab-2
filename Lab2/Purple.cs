@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 namespace Lab2
@@ -73,11 +74,21 @@ namespace Lab2
 
             // code here
             var tenM = 0.0001;
-            for (int n = 0; Math.Abs(b*Math.Pow(q,n)) > tenM; n++)
+            double ans = 1;
+            int st = 0;
+            for (int i = 0; i < st; i++)
+            {
+                ans *= q;
+            }
+            for (int n = 0; Math.Abs(b*ans) > tenM; n++)
             {
                 answer++;
+                ans = 1;
+                for (int j = 0; j < n; j++)
+                {
+                    ans *= q;
+                }
             }
-            answer++; // т.к. цикл заканчивается за действие до получение нужного значения < tenM
             // end
 
             return answer;
@@ -110,7 +121,12 @@ namespace Lab2
             double semki = 0;
             for (double i = 0; i < 64; i++)
             {
-                semki += Math.Pow(2,i);
+                double ans = 1;
+                for (int j = 0; j < i; j++)
+                {
+                    ans *= 2;
+                }
+                semki += ans;
             }
             semki /= 15000000;
             answer = (long)semki;
@@ -124,14 +140,14 @@ namespace Lab2
             int answer = 0;
 
             // code here
-            double _summMec = S*(100/d)/12;
+            double _summMec = S*(d/100)/12;
             double _2xSum = S*2;
-            for (int i = 0; S < _2xSum; i++)
+            for (int i = 1; S < _2xSum; i++)
             {
                 S += _summMec;
                 if (i % 12 == 0 && i != 0)
                 {
-                    _summMec = S*(100/d)/12;
+                    _summMec = S*(d/100)/12;
                 }
                 answer = i;
             }
@@ -146,7 +162,32 @@ namespace Lab2
             double SY = 0;
 
             // code here
+            double _eps = 0.0001;
+            for (double x = a; x <= b + 0.00000001; x += h)
+            {
+                SS += FuncSum(x);
+                SY += Math.Cos(x);
 
+            }
+
+            static double FuncSum(double x)
+            {
+                double summ = 0;
+                double _eps = 0.0001;
+                double _Fst = 1.0;
+                int ch = 0;
+                while (true)
+                {
+                    summ += _Fst;
+                    if (Math.Abs(_Fst) < _eps)
+                    {
+                        break;
+                    }
+                    _Fst *= (-x * x) / ((2 * ch + 1) * (2 * ch + 2));
+                    ch++;
+                }
+                return summ;
+            }
             // end
 
             return (SS, SY);
