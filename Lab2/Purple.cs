@@ -37,21 +37,19 @@ namespace Lab2
         {
             double answer = 0;
             double epsi = Math.Pow(10, -4);
-            int a = 1;
-            int b = 1;
-            int c;
-            double d;
-            int lol = 1;
+            double a = 1;
+            double b = 1;
+            double c;
+            double pre;
             while (true)
             {
-                d = a / b;
+                pre = a / b;
                 c = a;
-                a = a + b;
+                a += b;
                 b = c;
-                lol++;
-                if (Math.Abs(d - a / b) < epsi)
+                if (Math.Abs(pre - a / b) < epsi)
                 {
-                    answer = lol;
+                    answer = a / b;
                     break;
                 }
             }
@@ -66,8 +64,8 @@ namespace Lab2
             do
             {
                 n++;
-            } while (b * Math.Pow(q, n) < epsi);
-            answer = n;
+            } while (Math.Abs(b * Math.Pow(q, n)) >= epsi);
+            answer = n + 1;
             return answer;
         }
         public int Task5(int a, int b)
@@ -90,28 +88,44 @@ namespace Lab2
         }
         public long Task6()
         {
-            long answer = 0;
+            ulong answer = 0;
             for (int i = 0; i < 64; i++)
             {
-                answer += (long)Math.Pow(2, i);
+                answer += (ulong)Math.Pow(2, i);
             }
-            answer = (long)(answer * 15 / 1000.0);
+            answer = answer / 15000000;
 
-            return answer;
+            return (long)answer;
         }
 
         public int Task7(double S, double d)
         {
             int answer = 0;
             int mon = 0;
-            double S1 = S;
-            double k = (d / 12 + 100) / 100;
-            do
+            double proc;
+            double S2 = S;
+            double k = d / 100.0;
+            bool flag = false;
+            while (true)
             {
-                S1 *= k;
-                mon++;
-            } while (S1 >= S * 2);
-            answer = mon;
+                proc = S * k;
+                for (int i = 0; i < 13; i++)
+                {
+                    if (S2 >= S * 2)
+                    {
+                        answer = mon + i;
+                        flag = true;
+                        break;
+                    }
+                    S2 += proc / 12.0 * i;
+                }
+                if (flag)
+                {
+                    break;
+                }
+                mon += 12;
+            }
+            
 
             return answer;
         }
