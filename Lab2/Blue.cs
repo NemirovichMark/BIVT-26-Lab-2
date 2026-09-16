@@ -13,6 +13,7 @@ namespace Lab2
 
             // code here
 
+            
             // end
 
             return answer;
