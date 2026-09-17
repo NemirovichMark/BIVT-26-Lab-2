@@ -101,32 +101,20 @@ namespace Lab2
         public int Task7(double S, double d)
         {
             int answer = 0;
-            int mon = 0;
-            double proc;
-            double S2 = S;
-            double k = d / 100.0;
-            bool flag = false;
-            while (true)
+            double k = (d / 100.0) / 12.0;
+            double shi = S * k;
+            double target = 2 * S;
+
+            for (int i = 1; S < target; i++)
             {
-                proc = S * k;
-                for (int i = 0; i < 13; i++)
+                S += shi;
+                if (i % 12 == 0 && i != 0)
                 {
-                    if (S2 >= S * 2)
-                    {
-                        answer = mon + i;
-                        flag = true;
-                        break;
-                    }
-                    S2 += proc / 12.0 * i;
+                    shi = S * k;
                 }
-                if (flag)
-                {
-                    break;
-                }
-                mon += 12;
+                answer = i;
             }
             
-
             return answer;
         }
         public (double SS, double SY) Task8(double a, double b, double h)
@@ -140,7 +128,7 @@ namespace Lab2
             {
                 double S = 0;
                 i = 0;
-                while (Math.Pow(-1, i) * Math.Pow(x, 2 * i) / (2 * i)! < epsi)
+                while (Math.Pow(-1, i) * Math.Pow(x, 2 * i) / (2 * i) < epsi)
                 {
                     S += Math.Pow(-1, i) * Math.Pow(x, 2 * i) / (2 * i)!;
                 } 
