@@ -124,15 +124,37 @@ namespace Lab2
             double SS = 0;
             double SY = 0;
             int i = 0;
-            for (double x = a; x < b; x += h)
+            double gowno;
+            double S;
+            double wow;
+            int astralstep = (int)((b - a) / h);
+            for (int step = 0; step <= astralstep; step++) // будь ты проклят доубле утконос
             {
-                double S = 0;
+                double x = a + step * h;
+                S = 0;
                 i = 0;
-                while (Math.Pow(-1, i) * Math.Pow(x, 2 * i) / (2 * i) < epsi)
+                while (true)
                 {
-                    S += Math.Pow(-1, i) * Math.Pow(x, 2 * i) / (2 * i)!;
-                } 
+                    gowno = 1;
+                    wow = 0;
+                    for (int j = 1; j <= 2 * i; j++)
+                    {
+                        gowno *= j;
+                    }
+                    wow = Math.Pow(-1, i) * Math.Pow(x, 2 * i) / gowno;
+                    S += wow;
+
+                    if (Math.Abs(wow) < epsi)
+                    {
+                        break;
+                    }
+                    i += 1;
+                }
+                SS += S;
+                SY += Math.Cos(x);
             }
+
+
 
             return (SS, SY);
         }
