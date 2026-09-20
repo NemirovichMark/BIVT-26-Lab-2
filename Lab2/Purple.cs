@@ -1,4 +1,6 @@
-﻿namespace Lab2
+﻿using System.Diagnostics.Metrics;
+
+namespace Lab2
 {
     public class Purple
     {
@@ -73,7 +75,6 @@
 
             // code here
             const double TargetEpsilon = 0.0001;
-            double exp = q;
 
             for (int i = 2; ; i++)
             {
@@ -170,6 +171,46 @@
             double SY = 0;
 
             // code here
+
+            double TargetEpsilon = 0.0001;
+
+            int counter = 0;
+            int sign = 1;
+
+            while (a <= b+TargetEpsilon)
+            {
+
+                sign = (counter % 2 == 0) ? 1 : -1;
+                double x = a, exp = a;
+                double y = 1;
+        
+                for(int i = 2; i <= counter * 2; i++)
+                {
+                    x *= exp;
+                }
+
+                for(int i = 2; i <= counter * 2; i++)
+                {
+                    y *= i;
+                }
+
+                if (counter != 0)
+                {
+                    SS += sign * (x / y);
+                }
+                else SS += 1;
+
+
+                counter++;
+
+                if (Math.Abs(sign * (x / y)) < TargetEpsilon)
+                {
+                    SY += Math.Cos(a);
+                    a += h;
+                    counter = 0;
+                }
+            }
+
 
             // end
 
