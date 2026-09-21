@@ -47,14 +47,12 @@ namespace Lab2
 
             // code here
 
-            const double TargetEpsilon = 0.0001;
-
             int numeratorPresent = 3;
             int denominatorPresent = 2;
             int numeratorPast = 2;
             int denominatorPast = 1;
 
-            while (Math.Abs(((double)numeratorPresent / denominatorPresent) - ((double)numeratorPast / denominatorPast)) >= TargetEpsilon)
+            while (Math.Abs(((double)numeratorPresent / denominatorPresent) - ((double)numeratorPast / denominatorPast)) >= E)
             {
                 numeratorPresent += numeratorPast;
                 denominatorPresent += denominatorPast;
@@ -74,14 +72,13 @@ namespace Lab2
             int answer = 0;
 
             // code here
-            const double TargetEpsilon = 0.0001;
 
             for (int i = 2; ; i++)
             {
 
                 b *= q;
 
-                if (Math.Abs(b) < TargetEpsilon)
+                if (Math.Abs(b) < E)
                 {
                     Console.WriteLine(b);
 
@@ -172,12 +169,10 @@ namespace Lab2
 
             // code here
 
-            double TargetEpsilon = 0.0001;
-
             int counter = 0;
             int sign = 1;
 
-            while (a <= b+TargetEpsilon)
+            while (a <= b)
             {
 
                 sign = (counter % 2 == 0) ? 1 : -1;
@@ -203,10 +198,10 @@ namespace Lab2
 
                 counter++;
 
-                if (Math.Abs(sign * (x / y)) < TargetEpsilon)
+                if (Math.Abs(sign * (x / y)) < E)
                 {
                     SY += Math.Cos(a);
-                    a += h;
+                    a = Math.Round(a + h, 5);
                     counter = 0;
                 }
             }
