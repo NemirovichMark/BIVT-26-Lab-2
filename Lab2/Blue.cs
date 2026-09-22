@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 
@@ -32,7 +32,15 @@ namespace Lab2
             long answer = 0;
 
             // code here
-
+            int a = 0;
+            int b = 1;
+            for (int i = 0; i < n; i ++)
+            {
+                answer += a;
+                int c = a + b;
+                a = b;
+                b = c;
+            }
             // end
 
             return answer;
@@ -42,7 +50,7 @@ namespace Lab2
             int answer = 0;
 
             // code here
-
+            
             // end
 
             return answer;
@@ -52,7 +60,17 @@ namespace Lab2
             double answer = 0;
 
             // code here
-
+            double ch = 0, zn = 1;
+            double elem = ch / zn;
+            int i = 1;
+            do
+            {
+                ch += i;
+                zn *= x;
+                answer += elem;
+                elem = ch / zn;
+                i++;
+            } while (elem > 0.0001);
             // end
 
             return answer;
