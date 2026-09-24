@@ -10,10 +10,16 @@ namespace Lab2
         public int Task1(int n, int p, int h)
         {
             int answer = 0;
+            int dp = p;
+            int sum = 0;
+            for (int i = 0; i < n; i++)
+            {
+                int a = p + i * h;
+                sum += a * a;
+            }
 
-            // code here
-
-            // end
+            answer = sum;
+            
 
             return answer;
         }
@@ -21,50 +27,81 @@ namespace Lab2
         {
             int quotient = 0;
             int remainder = 0;
+            int count = 0;
 
-            // code here
+            while (a >= b)
+            {
+                a = a - b;
+                count++;
+            }
 
-            // end
+            quotient = count;
+            remainder = a;
 
             return (quotient, remainder);
         }
         public double Task3()
         {
             double answer = 0;
-
-            // code here
-
-            // end
+            
 
             return answer;
         }
         public int Task4(double b, double q)
         {
             int answer = 0;
+            int n = 1;
 
-            // code here
+            while (Math.Abs(b) >= E)
+            {
+                b = b * q;
+                n++;
 
-            // end
+            }
+
+            answer = n;
+            
 
             return answer;
         }
         public int Task5(int a, int b)
         {
             int answer = 0;
+            long number = a;
 
-            // code here
+            while (b > 0)
+            {
+                number *= b;
+                b--;
+            }
 
-            // end
+            while (number >= 10)
+            {
+                number /= 10;
+                answer++;
+            }
 
             return answer;
         }
         public long Task6()
         {
             long answer = 0;
+            double vsego = 0;
+            int count = 1;
+            double zerno = 1;
+            
+            while (count <= 64)
+            {
+                vsego += zerno;
+                zerno = zerno * 2;
+                count++;
+            }
 
-            // code here
+            double ves = vsego / 15;
+            double ton = ves / 1_000_000;
+            long res = (long)ton;
 
-            // end
+            answer = res;
 
             return answer;
         }
@@ -73,9 +110,22 @@ namespace Lab2
         {
             int answer = 0;
 
-            // code here
+            double dp = d / 1200;
+            double goal = S * 2;
+            int count = 0;
+            double yearS = S;
 
-            // end
+            while (S < goal)
+            {
+                S += yearS * dp;
+                count++;
+                if (count % 12 == 0)
+                {
+                    yearS = S;
+                }
+            }
+
+            answer = count;
 
             return answer;
         }
