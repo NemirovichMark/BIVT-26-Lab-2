@@ -89,6 +89,19 @@ namespace Lab2
             int answer = 0;
 
             // code here
+            int n = a;
+
+            while (b > 0)
+            {
+                n = n * b;
+                b--;
+            }
+
+            while (n >= 10)
+            {
+                n = n / 10;
+                answer++;
+            }
 
             // end
 
