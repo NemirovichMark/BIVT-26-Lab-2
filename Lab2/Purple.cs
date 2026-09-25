@@ -164,6 +164,27 @@ namespace Lab2
             double SY = 0;
 
             // code here
+            for (double x = a; x <= b + E; x += h)
+            {
+                double s = 0;
+                double t = 1;
+                int i = 0;
+
+                while (true)
+                {
+                    s += t;
+
+                    if (Math.Abs(t) < E)
+                        break;
+
+                    i++;
+
+                    t = t * (-x * x) / ((2 * i - 1) * (2 * i));
+                }
+
+                SS += s;
+                SY += Math.Cos(x);
+            }
 
             // end
 
