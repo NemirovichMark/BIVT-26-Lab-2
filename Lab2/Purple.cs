@@ -133,6 +133,26 @@ namespace Lab2
             int answer = 0;
 
             // code here
+            double S1 = S;
+            double n = 0;
+            int o = 0;
+            int y = 0;
+
+            while (n < S1)
+            {
+                 n += S * (d / 100) / 12;
+                 o++;
+
+                 if (o == 12)
+                 {
+                     y += 12;
+                     o = 0;
+                     S = S * (1 + d / 100);
+                }
+            }
+
+            y += o;
+            answer = y;
 
             // end
 
