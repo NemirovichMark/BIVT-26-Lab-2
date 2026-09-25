@@ -14,7 +14,7 @@ namespace Lab2
             // code here
             int s = p*p;
             for (int I=1;I<n;I++)
-                s += Math.Pow(p+I*h;2);
+                s += Math.Pow(p+I*h,2);
                 
             answer = s;
 
@@ -28,6 +28,13 @@ namespace Lab2
             int remainder = 0;
 
             // code here
+            remainder = a;
+
+            while (remainder >= b)
+            {
+                remainder = remainder - b;
+                quotient++;
+            }
 
             // end
 
@@ -38,6 +45,22 @@ namespace Lab2
             double answer = 0;
 
             // code here
+            double a = 1;
+            double b = 2;
+            double c = 1;
+            double d = 2;
+
+            while (Math.Abs(d - c) >= E)
+            {
+                double x = a + b;
+
+                a = b;
+                b = x;
+                c = d;
+                d = b / a;
+            }
+
+            answer = d;
 
             // end
 
@@ -48,6 +71,14 @@ namespace Lab2
             int answer = 0;
 
             // code here
+            double x = b;
+            answer = 1;
+
+            while (Math.Abs(x) >= E)
+            {
+                 x = x * q;
+                 answer++;
+            }
 
             // end
 
