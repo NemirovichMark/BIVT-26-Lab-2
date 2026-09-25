@@ -112,6 +112,16 @@ namespace Lab2
             long answer = 0;
 
             // code here
+            decimal x = 1;
+            decimal s = 0;
+
+            for (int i = 1; i <= 64; i++)
+            {
+                s = s + x;
+                x = x * 2;
+            }
+
+            answer = (long)(s / 15 / 1000000);
 
             // end
 
