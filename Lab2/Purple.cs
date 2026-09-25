@@ -12,6 +12,11 @@ namespace Lab2
             int answer = 0;
 
             // code here
+            int s= 0
+            for (int I=1;I<n;I++)
+                s += Math.Pow(p+I*h;2)
+                
+            answer = s
 
             // end
 
