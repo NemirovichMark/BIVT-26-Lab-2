@@ -14,7 +14,7 @@ namespace Lab2
             // code here
             int s = p*p;
             for (int I=1;I<n;I++)
-                s += (int)Math.Pow(p+I*h,2);
+                s += (p+I*h)*(p+I*h);
                 
             answer = s;
 
