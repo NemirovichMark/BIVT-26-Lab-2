@@ -91,7 +91,7 @@ return q;
         public int Task5(int a, int b)
         {
             int answer = 0;
-
+            long number = a;
             // code here
 while(b>0)
 {
@@ -149,32 +149,31 @@ return answer;
         public (double SS, double SY) Task8(double a, double b, double h)
         {
             double SS = 0;
-double SY = 0;
+            double SY = 0;
+            double E = 0.0001;
 
+            int n = (int)((b - a) / h);
 
-for (double x = a; x <= b; x += h)
-{
-    double s = 0;
-    double t = 1;
-    int i = 0;
+            for (int j = 0; j <= n; j++)
+            {
+                double x = a + j * h;
 
-    while (true)
-    {
-        s += t;
+                double s = 0;
+                double t = 1;
+                int i = 0;
 
-        if (Math.Abs(t) < E)
-            break;
+                while (Math.Abs(t) >= E)
+                {
+                    s += t;
+                    i++;
+                    t = -t * x * x / ((2 * i - 1) * (2 * i));
+                }
 
-        i++;
+                SS += s;
+                SY += Math.Cos(x);
+            }
 
-        t = -t * x * x / ((2 * i - 1) * (2 * i));
-    }
-
-    SS += s;
-    SY += Math.Cos(x);
-}
-
-return (SS, SY);
+            return (SS, SY);
         }
     }
 }
