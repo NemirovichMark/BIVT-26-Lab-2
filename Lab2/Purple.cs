@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 
@@ -10,73 +10,117 @@ namespace Lab2
         public int Task1(int n, int p, int h)
         {
             int answer = 0;
+            
 
-            // code here
-
-            // end
+            for (int i = 0; i < n; i++)
+            {
+                answer += (p + (i * h)) * (p + (i * h));
+            }
 
             return answer;
         }
         public (int quotient, int remainder)  Task2(int a, int b)
         {
-            int quotient = 0;
+            int quotient = 1;
             int remainder = 0;
 
-            // code here
-
-            // end
-
+            if (a != b)
+            {
+                while (a >= b)
+                {
+                    a -= b;
+                    quotient ++;
+                }
+                quotient -= 1;
+                remainder = a;
+            }
             return (quotient, remainder);
         }
         public double Task3()
         {
             double answer = 0;
-
-            // code here
-
-            // end
+            int ch = 1;
+            int zn = 1;
+            int ch1 = 2;
+            int zn1 = 1;
+            while (Math.Abs((double)ch1 / zn1 - (double)ch / zn) >= E)
+            {
+                ch += ch1;
+                ch1 += ch;
+                zn += zn1;
+                zn1 += zn;
+            }
+            if (((double)ch1 / zn1) > ((double)ch / zn))
+            {
+                answer = (double)ch1 /zn1;
+            }
+            else
+            {
+                answer = (double)ch / zn;
+            }
 
             return answer;
         }
         public int Task4(double b, double q)
         {
-            int answer = 0;
+            int answer = 1;
 
-            // code here
-
-            // end
+            while (Math.Abs(b) >= E)
+            {
+                b *= q;
+                answer ++;
+            }
 
             return answer;
         }
         public int Task5(int a, int b)
         {
             int answer = 0;
+            long number = a;
 
-            // code here
-
-            // end
-
+            while (b > 0)
+            {
+                number *= b;
+                b --;
+            }
+            while (number >= 10)
+            {
+                number /= 10;
+                answer ++;
+            }
+            
             return answer;
         }
         public long Task6()
         {
             long answer = 0;
-
-            // code here
-
-            // end
-
+            long zerno = 0;
+            long z = 1;
+            for (int i = 0; i < 63; i++)
+            {
+                zerno += z;
+                z *= 2;
+            }
+            answer = zerno / 7500000;
             return answer;
         }
 
         public int Task7(double S, double d)
         {
             int answer = 0;
+            double S2 = S;
+            double d2 = S*d/100;
 
-            // code here
-
-            // end
-
+            while (S < S2*2)
+            {
+                if (answer % 12 == 0)
+                {
+                    d2 = S * d / 100;
+                }
+                S += d2/12;
+                answer ++;
+            }
+            
             return answer;
         }
         public (double SS, double SY) Task8(double a, double b, double h)
