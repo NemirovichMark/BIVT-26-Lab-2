@@ -8,7 +8,11 @@
             int answer = 0;
 
             // code here
-
+        int n = Convert.ToInt32(Console.ReadLine());
+        int sum = 0;
+        for (int i = 1; i <= n; i++)
+        {
+            sum = sum + (3 * i - 1);
             // end
 
             return answer;
@@ -18,7 +22,12 @@
             double answer = 0;
 
             // code here
+        double sum = 0;
 
+        for (int i = 1; i <= n; i++)
+        {
+            sum += 1.0 / i;
+        }
             // end
 
             return answer;
