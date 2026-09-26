@@ -51,7 +51,14 @@
             long answer = 0;
 
             // code here
+     long result = 1;
 
+        for (int i = 0; i < b; i++)
+        {
+            result *= a;
+        }
+
+        return result;
             // end
 
             return answer;
