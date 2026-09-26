@@ -37,7 +37,11 @@
             long answer = 0;
 
             // code here
+   long result = 1;
 
+        for (int i = 1; i <= n; i++)
+        {
+            result *= i;
             // end
 
             return answer;
