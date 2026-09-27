@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace Lab2
 {
@@ -10,9 +10,12 @@ namespace Lab2
         {
             double answer = 0;
 
-            // code here
+            double s = 0;
 
-            // end
+            for (int i = 2; i <= n; i += 2)
+
+            { s += (double)i / (i + 1); }
+            answer = s;
 
             return answer;
         }
@@ -20,19 +23,31 @@ namespace Lab2
         {
             double answer = 0;
 
-            // code here
+            double s = 1;
+            double add = 1 / x;
+            for (int i = 1; i <= n; i++)
 
-            // end
+            {
+                s += add;
+                add = add / x;
+            }
+            answer = s;
 
             return answer;
+
         }
         public long Task3(int n)
         {
             long answer = 0;
 
-            // code here
-
-            // end
+            long s = 1;
+            long add = 1;
+            for (int i = 1; i <= n; i++)
+            {
+                add *= i;
+                s += add;
+            }
+            answer = s;
 
             return answer;
         }
@@ -40,29 +55,59 @@ namespace Lab2
         {
             double answer = 0;
 
-            // code here
-
-            // end
-
+            double s = 0;
+            double add = x;
+            for (int n = 1; ; n++)
+            {
+                double sinn = Math.Abs(Math.Sin(add * n));
+                if (sinn < E)
+                {
+                    break;
+                }
+                s += Math.Sin(add * n);
+                add *= x;
+            }
+            answer = s;
             return answer;
         }
         public int Task5(double x)
         {
             int answer = 0;
 
-            // code here
+            double add = 1;
+            double add2 = 1 / x;
+            for (int i = 1; ; i++)
+            {
+                if (Math.Abs(add - add2) < E)
+                {
+                    answer = i;
+                    break;
+                }
 
-            // end
+                add = add2;
+                add2 = add2 / x;
+            }
+
 
             return answer;
         }
         public int Task6(int limit)
         {
             int answer = 0;
+            int elem = 1;
 
-            // code here
-
-            // end
+            for (int i = 0; ; i++)
+            {
+                if (elem < limit)
+                {
+                    elem *= 2;
+                    answer += elem;
+                }
+                else
+                {
+                    break;
+                }
+            }
 
             return answer;
         }
@@ -70,10 +115,18 @@ namespace Lab2
         public int Task7(double L)
         {
             int answer = 0;
+            double dl = L;
 
-            // code here
+            for (int i = 0; ; i++)
+            {
 
-            // end
+                if (dl <= Da)
+                {
+                    answer = i;
+                    break;
+                }
+                dl = dl / 2.0;
+            }
 
             return answer;
         }
@@ -88,5 +141,7 @@ namespace Lab2
 
             return (SS, SY);
         }
+        }
     }
-}
+
+
