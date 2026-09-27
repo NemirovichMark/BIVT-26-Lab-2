@@ -12,7 +12,8 @@ namespace Lab2
             double answer = 0;
             // code here
             double power = 1.0;
-            for (int i = 1; i <= n; ++i){
+            for (int i = 1; i <= n; ++i)
+            {
                 answer += Math.Sin(i * x) / power;
                 power *= x;
             }
@@ -26,7 +27,8 @@ namespace Lab2
 
             // code here
             double power = 5.0;
-            for (double i = 1.0, fact = 1.0; i <= n; ++i){
+            for (double i = 1.0, fact = 1.0; i <= n; ++i)
+            {
                 fact *= i;
                 if (i % 2 != 0)
                     answer -= power / fact;
@@ -61,7 +63,8 @@ namespace Lab2
             int answer = 0;
 
             // code here
-            for (int s = 0, i = 0; s <= L; ++i){
+            for (int s = 0, i = 0; s <= L; ++i)
+            {
                 s += a + i * h;
                 if (s <= L)
                     answer += 1;
@@ -78,16 +81,15 @@ namespace Lab2
             double ch = 0, zn = 1;
             double elem = ch / zn;
             int i = 1;
-            for (; elem > 0.0001;)
+            do
             {
                 ch += i;
                 zn *= x;
                 answer += elem;
                 elem = ch / zn;
                 i++;
-
             }
-
+            while (elem > 0.0001);
 
             // end
 
@@ -98,7 +100,7 @@ namespace Lab2
             int answer = 0;
 
             // code here
-            for (; S < L;answer += h)
+            for (; S < L; answer += h)
                 S *= 2;
             // end
 
@@ -111,14 +113,26 @@ namespace Lab2
             int c = 0;
 
             // code here
-            a += S;
-            for (int n = 1; n <= 7; ++n)
-            {
-                a *= 1 + (I / 100);
-                S += a;
+            // a
+            double i = 1 + (I / 100.0), res = 1;
+            for (int n = 0; n < 7; ++n) {
+                a += S * res;
+                res *= i;
             }
-            double d = 0;
-            d += S;
+            // b
+            double i2 = 1 + (I / 100.0), res2 = 1;
+            for (double j = 0; j < 100;b++) {
+                j += S * res2;
+                res2 *= i2;
+            }
+            // c
+            double i3 = 1 + (I / 100.0), res3 = 1;
+            for (double j = 0; j <= 42;) {
+                j = S * res3;
+                res3 *= i3;
+                if (j <= 42)
+                    ++c;
+            }
 
 
             // end
@@ -131,7 +145,25 @@ namespace Lab2
             double SY = 0;
 
             // code here
-
+            for (double x = a; x <= b; x += h) {
+                double ch = 99999999;
+                for (int i = 0; Math.Abs(ch) >= 0.0001; i++)
+                {
+                    double res1 = 1, i1 = x, end1 = 2 * i;
+                    for (double j = 0; j < end1; ++j)
+                        res1 *= i1;
+                    int end2 = i;
+                    long res2 = 1;
+                    for (int j = 1; j <= end2; ++j)
+                        res2 *= j;
+                    ch = ((2 * i + 1) * res1) / res2;
+                    SS += ch;
+                }
+                //double res3 = 1, i3 = Math.E, end3 = x * x;
+                //for (double j = 0; j < end3; ++j)
+                //    res3 *= i3;
+                SY = (1 + 2 * x * x) * Math.Exp(x * x);
+            }
             // end
 
             return (SS, SY);
