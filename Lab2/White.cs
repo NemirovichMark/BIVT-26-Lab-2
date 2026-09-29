@@ -68,7 +68,13 @@
             int answer = 0;
 
             // code here
+     int L = int.Parse(Console.ReadLine());
 
+        long product = 1;
+        int n = 1;
+        int answer = 0;
+
+        while (product * n <= L)
             // end
 
             return answer;
