@@ -57,20 +57,23 @@ namespace Lab2
         }
         public int Task5(int L)
         {
-            int answer = 0;
 
             // code here
-
+            
             // end
-
-            return answer;
         }
         public double Task6(double x)
         {
             double answer = 0;
 
             // code here
-
+            double eps = 0.0001;
+            double term = 1.0;
+            while (Math.Abs(term)>=eps)
+            {
+                answer += term;
+                term *= x * x;
+            }
             // end
 
             return answer;
@@ -79,9 +82,14 @@ namespace Lab2
         public int Task7(int n)
         {
             int answer = 0;
+            int sum = 0;
 
             // code here
-
+            while(sum < n)
+            {
+                answer++;
+                sum += answer;
+            }
             // end
 
             return answer;
