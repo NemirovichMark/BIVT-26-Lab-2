@@ -11,7 +11,10 @@ namespace Lab2
             double answer = 0;
 
             // code here
-
+            for (double i = 2.0; i <= n; i += 2)
+            {
+                answer += i / (i + 1);
+            }
             // end
 
             return answer;
