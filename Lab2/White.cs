@@ -9,6 +9,10 @@
 
             // code here
 
+            for(int i = 1; i <= n; i++) {
+                answer += 3*i - 1;
+            }
+            
             // end
 
             return answer;
@@ -19,36 +23,53 @@
 
             // code here
 
+            for(int i = 1; i <= n; i++) {
+                answer += 1/i;
+            }
+            
             // end
 
             return answer;
         }
         public long Task3(int n)
         {
-            long answer = 0;
+            long answer = 1;
 
             // code here
 
+            for(int i = 1; i <= n; i++) {
+                answer *= i;
+            }
+            
             // end
 
             return answer;
         }
         public long Task4(int a, int b)
         {
-            long answer = 0;
+            long answer = 1;
 
             // code here
 
+            for(int i = 0; i < b; i++) {
+                answer *= a;
+            }
+            
             // end
 
             return answer;
         }
         public int Task5(int L)
         {
-            int answer = 0;
-
+            int answer = 1;
+            int res = 1;
             // code here
 
+            while (res <= L) {
+                answer += 3;
+                res *= answer
+            }
+            
             // end
 
             return answer;
