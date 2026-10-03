@@ -59,30 +59,28 @@ namespace Lab2
         {
             long product = 1;
             int n = 1;
-            int answer  = 0;
-            
+            int answer = 0;
 
-            while ( product * n <= L)
+            while (product * n <= L)
             {
                 product *= n;
                 answer = n;
                 n++;
             }
+
             return answer;
-        
         }
-        
+
         public double Task6(double x)
         {
             double answer = 1;
             double term = 1;
 
-            double epsilon = 1e-4;
-            for (int i = 1; 1 <= 1000; i++)
+            for (int i = 1; i <= 1000; i++)
             {
                 term *= x * x;
 
-                if (Math.Abs(term) < epsilon )
+                if (Math.Abs(term) < E)
                     break;
 
                 answer += term;
@@ -105,14 +103,11 @@ namespace Lab2
             return answer;
         }
 
-        public int Task8(double L, double v)
+        public double Task8(double L, double v)
         {
-            double h = Math.Sqrt(6371.0 * 6371.0 + L + L) - 637.0;
-            
+            double h = Math.Sqrt(R * R + L * L) - R;
 
-            return (int) (h / v);
+            return h / v;
         }
     }
 }
-
-        
