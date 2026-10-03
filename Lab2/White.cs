@@ -123,7 +123,11 @@
             const double R = 6371.0; // радиус Земли, км
 
             // code here
+      const double R = 6371;
 
+        double h = Math.Sqrt(R * R + L * L) - R;
+
+        return h / V;
             // end
 
             return answer;
