@@ -106,11 +106,12 @@ namespace Lab2
 
         public int Task8(double L, double v)
         {
-            const double R = 6371.0;
+            double h = Math.Sqrt(6371.0 * 6371.0 + L + L) - 637.0;
             
-            double h = Math.Sqrt(R * R + L * L) - R;
 
-            return h / v;
+            return (int) (h / v);
         }
+    }
+}
 
         
