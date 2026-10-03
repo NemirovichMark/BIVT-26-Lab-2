@@ -64,11 +64,13 @@ namespace Lab2
             {
                 product *= n;
                 if (product > L) break;
+                
                 answer = n;
             }
             return answer;
+        
         }
-
+        
         public double Task6(double x)
         {
             double answer = 1;
