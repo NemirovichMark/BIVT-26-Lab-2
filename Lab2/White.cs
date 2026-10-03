@@ -1,4 +1,4 @@
-﻿namespace Lab2
+namespace Lab2
 {
     public class White
     {
@@ -8,6 +8,10 @@
             int answer = 0;
 
             // code here
+            for (int i=1;i<=n;i++)
+            {
+                answer += 3 * i - 1;
+            }
 
             // end
 
@@ -18,6 +22,10 @@
             double answer = 0;
 
             // code here
+            for (int i=1;i<=n;i++)
+            {
+                answer += 1.0/ i;
+            }
 
             // end
 
@@ -28,6 +36,11 @@
             long answer = 0;
 
             // code here
+            answer = 1;
+            for (int i=1;i<=n;i++)
+            {
+                answer *= i;
+            }
 
             // end
 
@@ -36,8 +49,14 @@
         public long Task4(int a, int b)
         {
             long answer = 0;
+            
 
             // code here
+            answer = 1;
+            for (int i=1;i<=b;i++)
+            {
+                answer *= a;
+            }
 
             // end
 
@@ -48,6 +67,15 @@
             int answer = 0;
 
             // code here
+            int p = 1;
+            int product = 1;
+            
+            while (product <= L)
+            {
+                product *= p;
+                answer = p;
+                p += 3;
+            }
 
             // end
 
@@ -58,6 +86,13 @@
             double answer = 0;
 
             // code here
+            double t = 1;
+            double x2 = x * x;
+            while (Math.Abs(t) >= E)
+            {
+                answer += t;
+                t *= x2;
+            }
 
             // end
 
@@ -69,6 +104,12 @@
             int answer = 0;
 
             // code here
+            int sum = 0;
+            while (sum < n)
+            {
+                answer++;
+                sum += answer;
+            }
 
             // end
 
@@ -80,6 +121,15 @@
             const double R = 6371.0; // радиус Земли, км
 
             // code here
+            double h=0;
+            double cL = 0;
+            while (cL <= L)
+            {
+                answer++;
+                h = v * answer;
+                cL= Math.Sqrt(h*h +2*R*h);
+            }
+            
 
             // end
 
