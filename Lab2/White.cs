@@ -100,11 +100,11 @@ namespace Lab2
             return answer;
         }
 
-        public double Task8(double L, double v)
-        {
-            double h = Math.Sqrt(R * R + L * L) - R;
+      public double Task8(double L, double v)
+{
+    const double R = 6371.0;
 
-            return h / v;
-        }
-    }
+    double h = Math.Sqrt(R * R + L * L) - R;
+
+    return h / v;
 }
