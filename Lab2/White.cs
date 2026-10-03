@@ -105,7 +105,7 @@ namespace Lab2
         {
             double h = Math.Sqrt(R * R + L * L) - R;
 
-            return (int)Math.Round(h / v);
+            return (int)Math.Ceiling(h / v);
         }
     }
 }
