@@ -108,4 +108,5 @@ namespace Lab2
             return (int)Math.Round(h / v);
         }
     }
-
+}
+}
