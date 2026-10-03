@@ -58,15 +58,15 @@ namespace Lab2
         public int Task5(int L)
         {
             long product = 1;
+            int n = 1;
             int answer  = 0;
             
-            for (int n = 1; ; n++)
+
+            while ( product * n <= L)
             {
                 product *= n;
-                if (product > L) 
-                    break;
-                
-                answer = n;
+                amswer = n;
+                n++;
             }
             return answer;
         
