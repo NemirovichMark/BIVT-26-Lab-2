@@ -108,10 +108,11 @@ namespace Lab2
 
             // code here
             double h = Math.Sqrt(R * R + L * L) - R;
-            return h / v;
-            // end
+            answer =(int)Math.Ceiling (h / v);
 
+            // end
             return answer;
+            
         }
     }
 }
