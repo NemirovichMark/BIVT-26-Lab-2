@@ -59,7 +59,14 @@ namespace Lab2
         {
 
             // code here
-            
+            int answer = 1;
+            long p = 1;
+            while (p <= L)
+            {
+                answer += 3;
+                p *= answer;
+            }
+            return answer;
             // end
         }
         public double Task6(double x)
@@ -100,7 +107,8 @@ namespace Lab2
             const double R = 6371.0; // радиус Земли, км
 
             // code here
-
+            double h = Math.Sqrt(R * R + L * L) - R;
+            return h / v;
             // end
 
             return answer;
