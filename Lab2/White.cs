@@ -77,11 +77,12 @@ namespace Lab2
             double answer = 1;
             double term = 1;
 
-            while (true)
+            double epsilon = 1e-4;
+            for (int i = 1; 1 <= 1000; i++)
             {
                 term *= x * x;
 
-                if (Math.Abs(term) < E)
+                if (Math.Abs(term) < epsilon )
                     break;
 
                 answer += term;
