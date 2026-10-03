@@ -64,14 +64,17 @@
         }
         public int Task5(int L)
         {
-            int answer = 1;
+            int answer = 0;
 
             // code here
             int p = 1;
-            while (p <= L)
+            int product = 1;
+            
+            while (product <= L)
             {
-                answer += 3;
-                p *= answer;
+                product *= p;
+                answer = p;
+                p += 3;
             }
 
             // end
