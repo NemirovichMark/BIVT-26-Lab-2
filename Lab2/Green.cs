@@ -117,8 +117,9 @@ namespace Lab2
             int i = 0;
             while (elem <= limit)
             {
-                elem *= 2;
                 answer += elem;
+                elem *= 2;
+                
                 i++;
             }
             
