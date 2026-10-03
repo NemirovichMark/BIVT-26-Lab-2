@@ -55,19 +55,17 @@ namespace Lab2
 
             return answer;
         }
-        public int Task5(int L)
+        public int Task5 (int L)
         {
-
-            // code here
-            int answer = 1;
-            long p = 1;
-            while (p <= L)
+            int answer = 0;
+            answer = 1;
+            int p = 1;
+            while (p<=L)
             {
                 answer += 3;
                 p *= answer;
             }
             return answer;
-            // end
         }
         public double Task6(double x)
         {
