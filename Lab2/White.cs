@@ -84,7 +84,18 @@
             double answer = 0;
 
             // code here
+       double sum = 1;
+        double term = 1;
+        double epsilon = 1e-4;
 
+        for (int i = 1; i <= n; i++)
+        {
+            term *= x * x;
+
+            if (Math.Abs(term) < epsilon)
+                break;
+
+            sum += term;
             // end
 
             return answer;
