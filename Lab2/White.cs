@@ -58,16 +58,15 @@ namespace Lab2
         public int Task5(int L)
         {
             long product = 1;
-            int n = 1;
-            int answer = 0;
+            int answer  = 0;
+            
 
-            while (product * n <= L)
+            for (int n = 1; ; n++)
             {
                 product *= n;
+                if (product > L) break;
                 answer = n;
-                n++;
             }
-
             return answer;
         }
 
@@ -107,7 +106,6 @@ namespace Lab2
         {
             double h = Math.Sqrt(R * R + L * L) - R;
 
-            return (int)(h / v);
+            return (int)Math.Round(h / v);
         }
-    }
-}
+    
