@@ -65,7 +65,7 @@ namespace Lab2
             while ( product * n <= L)
             {
                 product *= n;
-                amswer = n;
+                answer = n;
                 n++;
             }
             return answer;
