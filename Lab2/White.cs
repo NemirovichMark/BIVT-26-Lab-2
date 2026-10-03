@@ -106,7 +106,13 @@
             int answer = 0;
 
             // code here
+     int answer = 0;
+        int sum = 0;
 
+        while (sum < n)
+        {
+            answer++;
+            sum += answer;
             // end
 
             return answer;
