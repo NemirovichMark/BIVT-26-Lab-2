@@ -45,7 +45,7 @@ namespace Lab2
             for (int i = 1; i <= n; i++)
             {
                 fact *= i;
-                answer *= fact;
+                answer += fact;
             }
             // end
 
@@ -115,10 +115,11 @@ namespace Lab2
             // code here
             int elem = 1;
             int i = 0;
-            while (elem <= limit)
+            while (elem < limit)
             {
-                answer += elem;
                 elem *= 2;
+                answer += elem;
+                
                 
                 i++;
             }
