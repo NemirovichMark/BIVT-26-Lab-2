@@ -60,7 +60,6 @@ namespace Lab2
             long product = 1;
             int answer  = 0;
             
-
             for (int n = 1; ; n++)
             {
                 product *= n;
