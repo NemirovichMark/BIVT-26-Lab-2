@@ -63,7 +63,8 @@ namespace Lab2
             for (int n = 1; ; n++)
             {
                 product *= n;
-                if (product > L) break;
+                if (product > L) 
+                    break;
                 
                 answer = n;
             }
