@@ -114,33 +114,43 @@ namespace Lab2
             return answer;
         }
 
-      public (double SS, double SY) Task8(double a, double b, double h)
-{
-    double SS = 0;
-    double SY = 0;
-
-    for (double x = a; x <= b; x += h)
-    {
-        double term = 1;
-        double sum = 1;
-        int i = 1;
-
-        while (true)
+             public (double SS, double SY) Task8(double a, double b, double h)
         {
-            term *= -x * x / ((2.0 * i - 1) * (2.0 * i));
-            sum += term;
+            double SS = 0;
+            double SY = 0;
 
-            if (Math.Abs(term) < E)
+            // Compute total step cycles using an integer to prevent infinite floating-point step loops
+            int steps = (int)Math.Round((b - a) / h);
+
+            for (int step = 0; step <= steps; step++)
             {
-                break;
+                double x = a + step * h;
+
+                // Protect against tiny over-steps past boundary b due to float rounding
+                if (x > b + E) break;
+
+                double term = 1;
+                double sum = 1;
+                int i = 1;
+
+                while (true)
+                {
+                    term *= -x * x / ((2.0 * i - 1) * (2.0 * i));
+                    sum += term;
+
+                    if (Math.Abs(term) < E)
+                    {
+                        break;
+                    }
+
+                    i++;
+                }
+
+                SS += sum;
+                SY += Math.Cos(x);
             }
 
-            i++;
+            return (SS, SY);
         }
-
-        SS += sum;
-        SY += Math.Cos(x);
-    }
-
-    return (SS, SY);
-}
+    } // Closes class Purple
+} // Closes namespace Lab2
