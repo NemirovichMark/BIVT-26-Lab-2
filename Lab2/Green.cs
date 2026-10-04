@@ -110,11 +110,11 @@ namespace Lab2
                 while (true)
                 {
                     double term = Math.Pow(-1, i) * Math.Pow(x, 2 * i + 1) / (2 * i + 1);
+                    sumS += term;
 
                     if (Math.Abs(term) < 0.0001)
                         break;
-
-                    sumS += term;
+                    
                     i++;
                 }
                 SS += sumS;
