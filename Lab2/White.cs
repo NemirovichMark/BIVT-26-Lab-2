@@ -32,29 +32,28 @@ namespace Lab2
         }
 
         public long Task3(int n)
-        {
-            long answer = 1;
+{
+    if (n < 0) return 0;
 
-            for (int i = 1; i <= n; i++)
-            {
-                answer *= i;
-            }
+    long answer = 1;
+    for (int i = 1; i <= n; i++)
+    {
+        answer *= i;
+    }
+    return answer;
+}
 
-            return answer;
-        }
+public long Task4(int a, int b)
+{
+    if (b < 0) return 0;
 
-        public long Task4(int a, int b)
-        {
-            long answer = 1;
-
-            for (int i = 0; i < b; i++)
-            {
-                answer *= a;
-            }
-
-            return answer;
-        }
-
+    long answer = 1;
+    for (int i = 0; i < b; i++)
+    {
+        answer *= a;
+    }
+    return answer;
+}
      public int Task5(int L)
 {
     long product = 1;
