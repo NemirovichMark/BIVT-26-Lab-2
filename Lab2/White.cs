@@ -53,21 +53,21 @@ namespace Lab2
         }
 
         public int Task5(int L)
-        {
-            if (L < 1) return 1;
+{
+    if (L < 1) return 1;
 
-            double limit = L;
-            double product = 1;
-            int n = 1;
+    long product = 1;
+    int n = 1;
 
-            while (product <= limit)
-            {
-                n += 3;
-                product *= n;
-            }
+    while (product <= (long)L)
+    {
+        n += 3;
+        product *= n;
+    }
 
-            return n;
+    return n;
         }
+        
 
         public double Task6(double x)
         {
