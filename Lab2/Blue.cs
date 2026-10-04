@@ -145,9 +145,10 @@ namespace Lab2
             double SY = 0;
 
             // code here
-            for (double x = a; x <= b; x += h) {
-                double ch = 99999999;
-                for (int i = 0; Math.Abs(ch) >= 0.0001; i++)
+            double eps = 0.0001;
+            for (double x = a; x <= b + 0.00001; x += h) {
+                double ch = 99999999, curent_sum = 0;
+                for (int i = 0; Math.Abs(ch) >= eps; i++)
                 {
                     double res1 = 1, i1 = x, end1 = 2 * i;
                     for (double j = 0; j < end1; ++j)
@@ -157,12 +158,11 @@ namespace Lab2
                     for (int j = 1; j <= end2; ++j)
                         res2 *= j;
                     ch = ((2 * i + 1) * res1) / res2;
-                    SS += ch;
+                    curent_sum += ch;
                 }
-                //double res3 = 1, i3 = Math.E, end3 = x * x;
-                //for (double j = 0; j < end3; ++j)
-                //    res3 *= i3;
-                SY = (1 + 2 * x * x) * Math.Exp(x * x);
+                SS += curent_sum;
+                SY += (1 + 2 * x * x) * Math.Exp(x * x);
+
             }
             // end
 
