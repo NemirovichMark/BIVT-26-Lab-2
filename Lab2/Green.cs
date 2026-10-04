@@ -9,7 +9,7 @@ namespace Lab2
         public double Task1(int n)
         {
             double answer = 0;
-            for (int i = 0; i < n; i += 2)
+            for (int i = 2; i < n; i += 2)
             {
                 answer += (double)i / (i + 1);
             }
@@ -17,7 +17,7 @@ namespace Lab2
         }
         public double Task2(int n, double x)
         {
-            double answer = 0;
+            double answer = 1;
             for (int i = 1; i <= n; i++)
             {
                 answer = answer + Math.Pow(x, -i);
@@ -90,7 +90,7 @@ namespace Lab2
         {
             int answer = 0;
             
-            while (L <= Da)
+            while (L > Da)
             {
                 L /= 2.0;
                 answer++;
