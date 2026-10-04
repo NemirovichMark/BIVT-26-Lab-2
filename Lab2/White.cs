@@ -1,37 +1,28 @@
-using System;
-
-namespace Lab2
+public double Task1(int n)
 {
-    public class White
+    if (n <= 0) return 0;
+
+    double sum = 0;
+    for (int i = 1; i <= n; i++)
     {
-        const double E = 0.0001;
-        const double R = 6371.0;
+        sum += 2 + 3 * (i - 1);
+    }
+    return sum;
+}
 
-        public int Task1(int n)
-        {
-            int answer = 0;
+public double Task2(int n)
+{
+    if (n <= 0) return 0;
 
-            for (int i = 1; i <= n; i++)
-            {
-                answer += 3 * i - 1;
-            }
+    double sum = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        sum += 1.0 / i;
+    }
+    return sum;
+}
 
-            return answer;
-        }
-
-        public double Task2(int n)
-        {
-            double answer = 0;
-
-            for (int i = 1; i <= n; i++)
-            {
-                answer += 1.0 / i;
-            }
-
-            return answer;
-        }
-
-        public long Task3(int n)
+public long Task3(int n)
 {
     if (n < 0) return 0;
 
@@ -54,7 +45,8 @@ public long Task4(int a, int b)
     }
     return answer;
 }
-  public int Task5(double L)
+
+public int Task5(double L)
 {
     if (L < 1) return 1;
 
@@ -89,6 +81,7 @@ public double Task6(double x)
 
     return answer;
 }
+
 public int Task7(int n)
 {
     int answer = 0;
@@ -105,11 +98,18 @@ public int Task7(int n)
 
 public double Task8(double L, double v)
 {
+    if (L <= 0 || v <= 0) return 0;
+
     const double R = 6371.0;
+    double hours = 0;
+    double currentL = 0;
 
-    double h = Math.Sqrt(R * R + L * L) - R;
-
-    return h / v;
-}
+    while (currentL <= L)
+    {
+        hours += 0.01;
+        double h = v * hours;
+        currentL = Math.Sqrt(2.0 * R * h + h * h);
     }
+
+    return Math.Round(hours, 2);
 }
