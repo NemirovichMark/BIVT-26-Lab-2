@@ -10,11 +10,10 @@ namespace Lab2
         {
             double answer = 0;
 
-            for (int i = 1; i <= n; i ++)
+            for (int i = 2; i <= n; i += 2)
             {
-                double a = 2 * i;
-                double b = a + 1;
-                answer += (a / b);
+                double a = i;
+                answer += a / (a + 1);
             }
 
             return answer;
