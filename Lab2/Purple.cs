@@ -107,9 +107,9 @@ while (Math.Abs(term) >= E)
 
     return answer;
 }
- public long Task6()
+         public long Task6()
         {
-            // Total grains on a chessboard = 2^64
+            // Total grains on a chessboard (2^64)
             double grains = Math.Pow(2, 64);
             
             // 15,000,000 grains density ratio maps precisely to 1229782938247
@@ -135,40 +135,39 @@ while (amount < 2 * S)
 
             return answer;
         }
-       public (double SS, double SY) Task8(double a, double b, double h)
-{
-    double SS = 0;
-    double SY = 0;
-
-    // Use a precise step calculator to bypass floating-point iteration errors
-    int steps = (int)Math.Round((b - a) / h);
-
-    for (int step = 0; step <= steps; step++)
-    {
-        double x = a + step * h;
-        if (x > b + E) break;
-
-        double term = 1;
-        double sum = 1;
-        int i = 1;
-
-        while (true)
+             public (double SS, double SY) Task8(double a, double b, double h)
         {
-            term *= -x * x / ((2.0 * i - 1) * (2.0 * i));
-            sum += term;
+            double SS = 0;
+            double SY = 0;
 
-            if (Math.Abs(term) < E)
+            int steps = (int)Math.Round((b - a) / h);
+
+            for (int step = 0; step <= steps; step++)
             {
-                break;
+                double x = a + step * h;
+                if (x > b + E) break;
+
+                double term = 1;
+                double sum = 1;
+                int i = 1;
+
+                while (true)
+                {
+                    term *= -x * x / ((2.0 * i - 1) * (2.0 * i));
+                    sum += term;
+
+                    if (Math.Abs(term) < E)
+                    {
+                        break;
+                    }
+
+                    i++;
+                }
+
+                SS += sum;
+                SY += Math.Cos(x);
             }
 
-            i++;
+            // Riemann integral sums must be scaled by multiplying the step width h
+            return (SS * h, SY * h);
         }
-
-        SS += sum;
-        SY += Math.Cos(x);
-    }
-
-    // Multiply by step width h to get the true area under the curve
-    return (SS * h, SY * h);
-}
