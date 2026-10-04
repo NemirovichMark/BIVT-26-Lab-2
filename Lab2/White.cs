@@ -109,4 +109,6 @@ namespace Lab2
                 SS += sum; SY += Math.Cos(x);
             }
             return (SS * h, SY * h);
-        }
+                }
+    }
+}
