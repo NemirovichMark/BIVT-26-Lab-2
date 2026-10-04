@@ -109,7 +109,7 @@ namespace Lab2
         {
             answer++;
 
-            double h = V * answer;
+            double h = v * answer;
 
             horizon = Math.Sqrt( h * (2 * R + h));
         }
