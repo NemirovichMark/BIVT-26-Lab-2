@@ -139,15 +139,15 @@ namespace Lab2
             for (int k = 0; k <= steps; k++)
             {
                 double x = a + k * h;
-                double power = x;
+                double p = x;
                 int sign = 1;
                 int i = 0;
                 double t;
                 do
                 {
-                    t = sign * power / (2 * i + 1);
+                    t = sign * p / (2 * i + 1);
                     SS += t;
-                    power *= x * x;
+                    p *= x * x;
                     sign = -sign;
                     i++;
                 } while (Math.Abs(t) >= E);
