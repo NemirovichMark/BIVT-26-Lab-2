@@ -46,7 +46,7 @@ namespace Lab2
 
             return answer;
         }
-        public int Task5(double x)
+        public int Task5(int x)
         {
             int answer = 0;
 
