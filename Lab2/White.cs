@@ -79,7 +79,7 @@ namespace Lab2
 
 
         // FIXED: Swapped parameters to match standard test input order (double, double)
-             public (double SS, double SY) Task8(double x, double E)
+                    public double Task8(double x, double E)
         {
             double term = 1;
             double sum = 1;
@@ -96,7 +96,8 @@ namespace Lab2
                 i++;
             }
 
-            return (sum, Math.Cos(x));
+            // Returns ONLY the calculated Taylor sum to match White level criteria
+            return sum;
         }
     }
 }
