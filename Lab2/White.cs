@@ -54,10 +54,8 @@ public long Task4(int a, int b)
     }
     return answer;
 }
-     public int Task5(int L)
+   public int Task5(int L)
 {
-    if (L < 1) return 0;
-
     long product = 1;
     int n = 1;
 
@@ -69,7 +67,7 @@ public long Task4(int a, int b)
 
     return n;
 }
-
+        
 public double Task6(double x)
 {
     double answer = 1;
@@ -102,13 +100,19 @@ public double Task6(double x)
             return answer;
         }
 
-         public double Task8(double L, double v)
+       public double Task8(double L, double v)
 {
     const double R = 6371.0;
+    double currentHeight = 0;
+    double hours = 0;
+    double distance = 0;
 
-    double h = Math.Sqrt(R * R + L * L) - R;
-
-    return h / v;
-}
+    while (distance <= L)
+    {
+        hours += 1.0;
+        currentHeight = (v * hours) / 1000.0;
+        distance = Math.Sqrt(2 * R * currentHeight + currentHeight * currentHeight);
     }
+
+    return hours;
 }
