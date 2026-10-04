@@ -102,7 +102,7 @@ namespace Lab2
         {
             double SS = 0;
             double SY = 0;
-            for (double x = a; x <= b; x += h)
+            for (double x = a; x <= b + h / 2; x += h)
             {
                 double sumS = 0;
                 int i = 0;
