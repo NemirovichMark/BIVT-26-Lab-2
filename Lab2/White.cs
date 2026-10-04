@@ -23,7 +23,7 @@ namespace Lab2
      {
          answer += 1.0 / i;
         // end
-
+     }
         return answer;
     }
     public long Task3(int n)
