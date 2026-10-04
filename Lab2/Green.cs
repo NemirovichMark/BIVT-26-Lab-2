@@ -74,7 +74,7 @@ namespace Lab2
         {
             int answer = 0;
 
-            for (int n = 0; ; n++)
+            for (int n = 1; ; n++)
             {
                 double a = 1 / Math.Pow(x, n);
                 double b = 1 / Math.Pow(x, n - 1);
