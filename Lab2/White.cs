@@ -94,7 +94,7 @@ namespace Lab2
         int answer = 0;
 
         // code here
-         int sum = o ;
+         int sum = 0 ;
         while ( sum < n)
         {
             answer++;
@@ -110,7 +110,7 @@ namespace Lab2
         const double R = 6371.0; // радиус Земли, км
 
         // code here
-        double horizon = o;
+        double horizon = 0;
         
         while ( horizon <= L)
         {
