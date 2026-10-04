@@ -171,3 +171,6 @@ while (amount < 2 * S)
             // Riemann integral sums must be scaled by multiplying the step width h
             return (SS * h, SY * h);
         }
+        }
+    }
+
