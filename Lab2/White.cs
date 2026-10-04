@@ -8,7 +8,7 @@ namespace Lab2
             int answer = 0;
 // code here
 
-            for (int i = 1; i <= n i++);
+            for (int i = 1; i <= n; i++)
                 answer += 3 * i - 1 ;
         // end
 
@@ -20,6 +20,7 @@ namespace Lab2
 
         // code here
      for (int i = 1; i <= n; i++)
+     {
          answer += 1.0 / i;
         // end
 
@@ -32,6 +33,7 @@ namespace Lab2
         // code here
      answer = 1;
       for (int i = 1; i <= n; i++)
+      {
           answer *= i;
     }
         // end
@@ -77,7 +79,7 @@ namespace Lab2
 
         // code here
    double term = 1;
-        while (term >= E)
+   while (term >= E)
         {
             answer += term;
             term *= x * x;
@@ -92,7 +94,7 @@ namespace Lab2
         int answer = 0;
 
         // code here
- int sum = o ;
+         int sum = o ;
         while ( sum < n)
         {
             answer++;
@@ -108,7 +110,8 @@ namespace Lab2
         const double R = 6371.0; // радиус Земли, км
 
         // code here
-   double horizon = o;
+        double horizon = o;
+        
         while ( horizon <= L)
         {
             answer++;
