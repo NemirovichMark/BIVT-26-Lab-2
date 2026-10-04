@@ -9,7 +9,7 @@ namespace Lab2
 // code here
 
             for (int i = 1; i <= n i++);
-                answer +=3 * i - 1;
+                answer += 3 * i - 1 ;
         // end
 
         return answer;
@@ -43,8 +43,11 @@ namespace Lab2
         long answer = 0;
 
         // code here
+        answer = 1 ;
  for (int i = 0; i < b; i++)
+ {
      answer *= a;
+ }
         // end
 
         return answer;
