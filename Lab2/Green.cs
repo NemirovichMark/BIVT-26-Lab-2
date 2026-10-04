@@ -119,22 +119,20 @@ namespace Lab2
             double SS = 0;
             double SY = 0;
 
-            for (double x = a; x <= b; x += h)
+            int steps = (int)Math.Round((b - a) / h);
+            for (int k = 0; k <= steps; k++)
             {
+                double x = a + k * h;
 
                 double row = 0;
                 for (int i = 0; ; i++)
                 {
                     double s = Math.Pow(-1, i) * Math.Pow(x, 2 * i + 1) / (2 * i + 1);
-                    if (Math.Abs(s) > 0.0001)
-                    {
-                        row += s;
 
-                    }
-                    else
-                    {
+                    if (Math.Abs(s) < 0.0001)
                         break;
-                    }
+
+                    row += s;
                 }
                 SS += row;
                 SY += Math.Atan(x);
