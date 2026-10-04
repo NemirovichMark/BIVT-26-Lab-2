@@ -54,7 +54,7 @@ public long Task4(int a, int b)
     }
     return answer;
 }
-   public int Task5(int L)
+  public int Task5(int L)
 {
     if (L < 1) return 1;
 
@@ -69,7 +69,7 @@ public long Task4(int a, int b)
 
     return n;
 }
-        
+
 public double Task6(double x)
 {
     double answer = 1;
@@ -88,25 +88,28 @@ public double Task6(double x)
 
     return answer;
 }
-        public int Task7(int n)
-        {
-            int answer = 0;
-            int sum = 0;
 
-            while (sum < n)
-            {
-                answer++;
-                sum += answer;
-            }
+public int Task7(int n)
+{
+    int answer = 0;
+    int sum = 0;
 
-            return answer;
-        }
+    while (sum < n)
+    {
+        answer++;
+        sum += answer;
+    }
 
-     public double Task8(double L, double v)
+    return answer;
+}
+
+public double Task8(double L, double v)
 {
     const double R = 6371.0;
 
     double h = Math.Sqrt(R * R + L * L) - R;
 
     return h / v;
+}
+    }
 }
