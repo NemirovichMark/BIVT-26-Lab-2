@@ -11,6 +11,10 @@ namespace Lab2
             double answer = 0;
 
             // code here
+            for (int i =2 ; i<=n; i+=2)
+            {
+                answer += (double)i / (i + 1);
+            }
 
             // end
 
@@ -21,7 +25,13 @@ namespace Lab2
             double answer = 0;
 
             // code here
-
+            answer= 1.0;
+            double a = 1.0;
+            for (int i =1;i<=n;i++)
+            {
+                a*=x;
+                answer += 1.0 / a;
+            }
             // end
 
             return answer;
@@ -31,6 +41,13 @@ namespace Lab2
             long answer = 0;
 
             // code here
+            long f = 1;
+            answer = f;
+            for (int i =1;i<=n;i++)
+            {
+                f *= i;
+                answer += f;
+            }
 
             // end
 
@@ -41,6 +58,17 @@ namespace Lab2
             double answer = 0;
 
             // code here
+            int i = 1;
+            double c = x;
+            while (true)
+            {
+                double a = Math.Sin(i * c);
+                answer += a;
+                if (Math.Abs(a) < E)
+                    break;
+                i++;
+                c *= x;
+            }
 
             // end
 
@@ -51,6 +79,16 @@ namespace Lab2
             int answer = 0;
 
             // code here
+            int n = 1;
+            double a1 = 1;
+            double a2 = 1 / x;
+            while (Math.Abs(a1-a2)>=E)
+            {
+                a1 = a2;
+                a2 = a2 / x;
+                n++;
+            }
+            answer = n;
 
             // end
 
@@ -61,6 +99,13 @@ namespace Lab2
             int answer = 0;
 
             // code here
+            int elem = 1, i = 0;
+            while (elem<limit)
+            {
+                elem *= 2;
+                answer += elem;
+                i++;
+            }
 
             // end
 
@@ -72,6 +117,13 @@ namespace Lab2
             int answer = 0;
 
             // code here
+            int count = 0;
+            while (L > Da)
+            {
+                L = L / 2.0;
+                count += 1;
+            }
+            answer = count;
 
             // end
 
