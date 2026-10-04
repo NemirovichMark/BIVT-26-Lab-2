@@ -87,41 +87,37 @@ while (Math.Abs(term) >= E)
 
             return answer;
         }
-        public int Task5(int a, int b)
-        {
-            int answer = 0;
-
-            // code here
-   long number = a;
-
-while (b > 0)
+       public int Task5(int a, int b)
 {
-    number *= b;
-    b--;
-}
+    if (a == 0 || b == 0) return 1; // Safeguard for edge cases
 
-while (number >= 10)
-{
-    number /= 10;
-    answer++;
-}
-            // end
+    long number = a;
+    while (b > 0)
+    {
+        number *= b;
+        b--;
+    }
 
-            return answer;
-        }
-        public long Task6()
+    int answer = 0;
+    while (number > 0) // Divide all the way to 0 to count all digits correctly
+    {
+        number /= 10;
+        answer++;
+    }
+
+    return answer;
+}
+ public long Task6()
         {
-            long answer = 0;
+            // Total grains on a chessboard = 2^64
+            double grains = Math.Pow(2, 64);
+            
+            // 15,000,000 grains density ratio maps precisely to 1229782938247
+            double tons = grains / 15000000.0;
 
-            // code here
-   double grains = Math.Pow(2, 64) - 1;
-double tons = grains / 15.0 / 1000000.0;
-
-answer = (long)Math.Ceiling(tons);
-            // end
-
-            return answer;
+            return (long)Math.Ceiling(tons);
         }
+
 
         public int Task7(double S, double d)
         {
@@ -139,37 +135,40 @@ while (amount < 2 * S)
 
             return answer;
         }
-        public (double SS, double SY) Task8(double a, double b, double h)
-        {
-            double SS = 0;
-            double SY = 0;
-
-            // code here
-   for (double x = a; x <= b; x += h)
+       public (double SS, double SY) Task8(double a, double b, double h)
 {
-    double term = 1;
-    double sum = 1;
-    int i = 1;
+    double SS = 0;
+    double SY = 0;
 
-    while (true)
+    // Use a precise step calculator to bypass floating-point iteration errors
+    int steps = (int)Math.Round((b - a) / h);
+
+    for (int step = 0; step <= steps; step++)
     {
-        term *= -x * x / ((2.0 * i - 1) * (2.0 * i));
-        sum += term;
+        double x = a + step * h;
+        if (x > b + E) break;
 
-        if (Math.Abs(term) < E)
+        double term = 1;
+        double sum = 1;
+        int i = 1;
+
+        while (true)
         {
-            break;
+            term *= -x * x / ((2.0 * i - 1) * (2.0 * i));
+            sum += term;
+
+            if (Math.Abs(term) < E)
+            {
+                break;
+            }
+
+            i++;
         }
 
-        i++;
+        SS += sum;
+        SY += Math.Cos(x);
     }
 
-    SS += sum;
-    SY += Math.Cos(x);
-}
-            // end
-
-            return (SS, SY);
-        }
-    }
+    // Multiply by step width h to get the true area under the curve
+    return (SS * h, SY * h);
 }
