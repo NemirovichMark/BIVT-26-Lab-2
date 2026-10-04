@@ -1,4 +1,6 @@
-﻿namespace Lab2
+using System.Reflection.Metadata.Ecma335;
+
+namespace Lab2
 {
     public class White
     {
@@ -8,7 +10,9 @@
             int answer = 0;
 
             // code here
-
+           
+            for (int i = 1; i <= n; i++)
+                answer += 3 * i - 1;
             // end
 
             return answer;
@@ -18,16 +22,24 @@
             double answer = 0;
 
             // code here
+            for (int i = 1; i <= n; i++)
+            {
+                answer += 1.0 / i;
+            }
 
-            // end
+             // end
 
             return answer;
         }
         public long Task3(int n)
         {
-            long answer = 0;
+            long answer = 1;
 
             // code here
+            for (int i = 2; i<=n; i++)
+            {
+                answer *= i;
+            }
 
             // end
 
@@ -35,9 +47,14 @@
         }
         public long Task4(int a, int b)
         {
-            long answer = 0;
+            long answer = 1;
 
             // code here
+            for (int i=0; i<b;i++)
+            {
+                answer *= a;
+            }
+            
 
             // end
 
@@ -45,9 +62,15 @@
         }
         public int Task5(int L)
         {
-            int answer = 0;
+            int answer = 1;
 
             // code here
+            int p = 1;
+            while(p<=L)
+            {
+                answer += 3;
+                p *= answer;
+            }
 
             // end
 
@@ -58,6 +81,16 @@
             double answer = 0;
 
             // code here
+            double s = 0;
+            double t = 1;
+            double e = 1e-4;
+            double x2 = x * x;
+            while (t>=e)
+            {
+                s += t;
+                t *= x2;
+            }
+            return s;
 
             // end
 
@@ -69,6 +102,14 @@
             int answer = 0;
 
             // code here
+            //int answer = 0;
+            int sum = 0;
+            while (sum<n)
+            {
+                answer++;
+                sum += answer;
+            }
+            return answer;
 
             // end
 
@@ -80,6 +121,18 @@
             const double R = 6371.0; // радиус Земли, км
 
             // code here
+            double l1=L*L;
+            double s=0.001;
+            while(true)
+            {
+                double h = v * answer;
+                double l2 = h * h + 2 * R * h;
+                if (l2>l1)
+                {
+                    return answer;
+                }
+                answer++;
+            }
 
             // end
 
