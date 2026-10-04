@@ -54,11 +54,11 @@ public long Task4(int a, int b)
     }
     return answer;
 }
-  public int Task5(int L)
+  public int Task5(double L)
 {
     if (L < 1) return 1;
 
-    long product = 1;
+    double product = 1;
     int n = 1;
 
     while (product <= L)
@@ -72,6 +72,8 @@ public long Task4(int a, int b)
 
 public double Task6(double x)
 {
+    if (Math.Abs(x) >= 1) return 0;
+
     double answer = 1;
     double term = 1;
     const double E = 0.0001;
@@ -79,16 +81,14 @@ public double Task6(double x)
     for (int i = 1; i <= 1000; i++)
     {
         term *= x * x;
+        answer += term;
 
         if (Math.Abs(term) < E)
             break;
-
-        answer += term;
     }
 
     return answer;
 }
-
 public int Task7(int n)
 {
     int answer = 0;
