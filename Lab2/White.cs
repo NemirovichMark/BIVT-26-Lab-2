@@ -109,3 +109,4 @@ namespace Lab2
     return h / v;
 }
     }
+}
