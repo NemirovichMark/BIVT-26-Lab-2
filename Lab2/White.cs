@@ -38,39 +38,28 @@ namespace Lab2
             return answer;
         }
 
-                    public int Task5(double a, double b)
+                            public int Task5(double n)
         {
-            // Calculate the factorial of b using double to safely handle inputs
-            long factorialB = 1;
-            int bInt = (int)b;
-            while (bInt > 0)
+            // Counts digits of factorial n!
+            int nInt = (int)n;
+            if (nInt < 0) return 0;
+            if (nInt == 0 || nInt == 1) return 1;
+
+            double logSum = 0;
+            for (int i = 2; i <= nInt; i++)
             {
-                factorialB *= bInt;
-                bInt--;
+                logSum += Math.Log10(i);
             }
 
-            // Calculate the final combined product
-            long number = (long)a * factorialB;
-
-            // Handle the edge case where the total product is exactly 0
-            if (number == 0) return 1;
-
-            // Count the total number of digits
-            int answer = 0;
-            while (number > 0)
-            {
-                number /= 10;
-                answer++;
-            }
-
-            return answer;
+            return (int)Math.Floor(logSum) + 1;
         }
 
         // ENSURED: Parameter type is double
-        public long Task6()
+         public long Task6(double density)
         {
+            // Calculates chessboard wheat grains based on provided weight density
             double grains = Math.Pow(2, 64);
-            double tons = grains / 15000000.0;
+            double tons = grains / (density * 1000000.0);
             return (long)Math.Ceiling(tons);
         }
 
@@ -90,25 +79,22 @@ namespace Lab2
 
 
         // FIXED: Swapped parameters to match standard test input order (double, double)
-        public (double SS, double SY) Task8(double a, double b, double h)
+             public (double SS, double SY) Task8(double x, double E)
         {
-            double SS = 0; double SY = 0;
-            int steps = (int)Math.Round((b - a) / h);
-            for (int step = 0; step <= steps; step++)
+            double term = 1;
+            double sum = 1;
+            int i = 1;
+
+            while (true)
             {
-                double x = a + step * h;
-                if (x > b + E) break;
-                double term = 1; double sum = 1; int i = 1;
-                while (true)
+                term *= -x * x / ((2.0 * i - 1) * (2.0 * i));
+                if (Math.Abs(term) < E)
                 {
-                    term *= -x * x / ((2.0 * i - 1) * (2.0 * i));
-                    sum += term;
-                    if (Math.Abs(term) < E) break;
-                    i++;
+                    break;
                 }
-                SS += sum; SY += Math.Cos(x);
+                sum += term;
+                i++;
             }
-            return (SS * h, SY * h);
-                }
-    }
-}
+
+            return (sum, Math.Cos(x));
+        }
