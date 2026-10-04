@@ -38,30 +38,37 @@ namespace Lab2
             return answer;
         }
 
-        public int Task5(int L)
+               public int Task5(int a, int b)
         {
-            int answer = 0;
-            int p = 1;
-            while (p <= L)
+            if (a == 0 || b == 0) return 1;
+
+            long number = a;
+            while (b > 0)
             {
-                answer += 3;
-                p *= 2; 
+                number *= b;
+                b--;
             }
+
+            int answer = 0;
+            while (number > 0)
+            {
+                number /= 10;
+                answer++;
+            }
+
             return answer;
         }
 
+
         // ENSURED: Parameter type is double
-        public double Task6(double x)
+                public long Task6()
         {
-            double answer = 0;
-            double term = 1;
-            while (Math.Abs(term) >= E)
-            {
-                answer += term;
-                term *= x; 
-            }
-            return answer;
+            double grains = Math.Pow(2, 64);
+            double tons = grains / 15000000.0;
+
+            return (long)Math.Ceiling(tons);
         }
+
 
         public int Task7(int n)
         {
@@ -76,19 +83,38 @@ namespace Lab2
         }
 
         // FIXED: Swapped parameters to match standard test input order (double, double)
-        public int Task8(double L, double v)
+                public (double SS, double SY) Task8(double a, double b, double h)
         {
-            int answer = 0;
-            const double R = 6371.0; 
+            double SS = 0;
+            double SY = 0;
 
-            double horizon = 0;
-            while (horizon <= L)
+            int steps = (int)Math.Round((b - a) / h);
+
+            for (int step = 0; step <= steps; step++)
             {
-                answer++;
-                double h = (v * answer) / 60.0; 
-                horizon = Math.Sqrt(h * (2 * R + h));
+                double x = a + step * h;
+                if (x > b + E) break;
+
+                double term = 1;
+                double sum = 1;
+                int i = 1;
+
+                while (true)
+                {
+                    term *= -x * x / ((2.0 * i - 1) * (2.0 * i));
+                    sum += term;
+
+                    if (Math.Abs(term) < E)
+                    {
+                        break;
+                    }
+
+                    i++;
+                }
+
+                SS += sum;
+                SY += Math.Cos(x);
             }
-            return answer;
+
+            return (SS * h, SY * h);
         }
-    }
-}
