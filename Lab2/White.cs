@@ -111,18 +111,15 @@ namespace Lab2
 
         // code here
         double horizon = 0;
-        
         while ( horizon <= L)
-        {
             answer++;
 
             double h = v * answer;
 
-            horizon = Math.Sqrt( h * (2 * R + h));
-        }
+            horizon = Math.Sqrt(h * (2 * R + h));
         // end
 
         return answer;
-    }
-}
+     }
+  }
 }
