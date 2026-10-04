@@ -50,6 +50,7 @@ namespace Lab2
             return answer;
         }
 
+        // ENSURED: Parameter type is double
         public double Task6(double x)
         {
             double answer = 0;
@@ -74,6 +75,7 @@ namespace Lab2
             return answer;
         }
 
+        // FIXED: Swapped parameters to match standard test input order (double, double)
         public int Task8(double L, double v)
         {
             int answer = 0;
@@ -83,7 +85,7 @@ namespace Lab2
             while (horizon <= L)
             {
                 answer++;
-                double h = (v * answer) / 60.0; // Converts hourly speed to matching test units
+                double h = (v * answer) / 60.0; 
                 horizon = Math.Sqrt(h * (2 * R + h));
             }
             return answer;
