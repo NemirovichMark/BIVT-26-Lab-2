@@ -59,20 +59,19 @@ namespace Lab2
             return answer;
         }
 
-        public int Task4(double b, double q)
-        {
-            int answer = 0;
-            double term = b;
+       public int Task4(double b, double q)
+{
+    int answer = 1;
+    double term = b;
 
-            while (Math.Abs(term) >= E)
-            {
-                term *= q;
-                answer++;
-            }
+    while (Math.Abs(term) >= E)
+    {
+        term *= q;
+        answer++;
+    }
 
-            return answer;
-        }
-
+    return answer;
+}
         public int Task5(int a, int b)
         {
             int answer = 0;
@@ -115,35 +114,33 @@ namespace Lab2
             return answer;
         }
 
-        public (double SS, double SY) Task8(double a, double b, double h)
+      public (double SS, double SY) Task8(double a, double b, double h)
+{
+    double SS = 0;
+    double SY = 0;
+
+    for (double x = a; x <= b; x += h)
+    {
+        double term = 1;
+        double sum = 1;
+        int i = 1;
+
+        while (true)
         {
-            double SS = 0;
-            double SY = 0;
+            term *= -x * x / ((2.0 * i - 1) * (2.0 * i));
+            sum += term;
 
-            for (double x = a; x <= b; x += h)
+            if (Math.Abs(term) < E)
             {
-                double term = 1;
-                double sum = 1;
-                int i = 1;
-
-                while (true)
-                {
-                    term *= -x * x / ((2.0 * i - 1) * (2.0 * i));
-                    sum += term;
-
-                    if (Math.Abs(term) < E)
-                    {
-                        break;
-                    }
-
-                    i++;
-                }
-
-                SS += sum;
-                SY += Math.Cos(x);
+                break;
             }
 
-            return (SS, SY);
+            i++;
         }
+
+        SS += sum;
+        SY += Math.Cos(x);
     }
+
+    return (SS, SY);
 }
