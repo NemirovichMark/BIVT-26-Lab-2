@@ -52,14 +52,15 @@ namespace Lab2
             return answer;
         }
 
-        public int Task5(double L)
+        public int Task5(int L)
         {
             if (L < 1) return 1;
 
+            double limit = L;
             double product = 1;
             int n = 1;
 
-            while (product <= L)
+            while (product <= limit)
             {
                 n += 3;
                 product *= n;
