@@ -258,3 +258,5 @@
 /Users/data/VsCodeProjects/infa/BIVT-26-Lab-2/Lab2test/obj/Debug/net8.0/Lab2test.pdb
 /Users/data/VsCodeProjects/infa/BIVT-26-Lab-2/Lab2test/obj/Debug/net8.0/Lab2test.genruntimeconfig.cache
 /Users/data/VsCodeProjects/infa/BIVT-26-Lab-2/Lab2test/obj/Debug/net8.0/ref/Lab2test.dll
+/Users/data/VsCodeProjects/infa/BIVT-26-Lab-2/Lab2test/bin/Debug/net8.0/ru/Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+/Users/data/VsCodeProjects/infa/BIVT-26-Lab-2/Lab2test/bin/Debug/net8.0/ru/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll

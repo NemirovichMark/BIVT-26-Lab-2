@@ -135,12 +135,11 @@ namespace Lab2
         {
             double SS = 0;
             double SY = 0;
-
+            
             // code here
-            double eps = 0.0001;
-
-            for (double x = a; x <= b; x += h)
+            for (int k = 0; a + k * h <= b; k++)
             {
+                double x = a + k * h;
                 double s = 0;
                 double term = x;
                 int i = 0;
@@ -149,7 +148,7 @@ namespace Lab2
                 {
                     s += term;
 
-                    if (Math.Abs(term) < eps)
+                    if (Math.Abs(term) < E)
                         break;
 
                     i++;
@@ -159,7 +158,7 @@ namespace Lab2
                 SS += s;
                 SY += Math.Atan(x);
             }
-            // end
+            //end
 
             return (SS, SY);
         }
