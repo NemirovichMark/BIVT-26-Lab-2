@@ -1,6 +1,10 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics.Tracing;
 using System.Runtime.InteropServices;
+using System.Runtime.Intrinsics.Arm;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Lab2
 {
@@ -12,7 +16,18 @@ namespace Lab2
             double answer = 0;
 
             // code here
+            double zn = 1;
+            double ch = 0;
+            double add = 0;
+            answer += Math.Sin(x);
+            for (int i = 2; i <= n; i++)
+            {
+                zn *= x;                         // находим степепень числа 
+                ch = x * i;       // находим знаменатель, он на один меньше
 
+                add = Math.Sin(ch) / zn;
+                answer += add;
+            }
             // end
 
             return answer;
@@ -22,6 +37,16 @@ namespace Lab2
             double answer = 0;
 
             // code here
+            double ch = 1;
+            double zn = 1;
+            for (int i = 1; i<=n; i++)
+            {
+               double add = 0;
+                ch *= (-5);
+                zn *= i;
+                add = ch / zn;
+                answer += add;
+            }
 
             // end
 
@@ -32,7 +57,15 @@ namespace Lab2
             long answer = 0;
 
             // code here
-
+            long f1 = 0;
+            long f2 = 1;
+            for (int i = 1; i <= n; i++)
+            {
+                answer += f1;
+                long NextF = f1 + f2;
+                f1 = f2;
+                f2 = NextF;
+            }
             // end
 
             return answer;
@@ -42,6 +75,17 @@ namespace Lab2
             int answer = 0;
 
             // code here
+            double s = 0;
+            int n = 0;
+            do
+            {
+                s += a + n * h;
+                n += 1;
+                answer += 1;
+            }
+            while (s <= L);
+
+            answer -= 1;
 
             // end
 
@@ -52,7 +96,19 @@ namespace Lab2
             double answer = 0;
 
             // code here
+            double ch = 0, zn=1;
+            double elem = ch / zn;
+            int i = 1;
+            do
+            {
+                ch += i;
+                zn *= x;
+                answer += elem;
+                elem = ch / zn;
+                i++;
 
+            }
+            while (elem > 0.0001);
             // end
 
             return answer;
@@ -62,7 +118,11 @@ namespace Lab2
             int answer = 0;
 
             // code here
-
+            while (S < L)
+            {
+                S *= 2;
+                answer+= h;
+            }
             // end
 
             return answer;
@@ -74,6 +134,41 @@ namespace Lab2
             int c = 0;
 
             // code here
+            double cof = 1 + I / 100.0;
+            double sum7 = 0;
+            double S1 = S;
+            int i = 0;
+            while (i < 7)
+            {
+                sum7 += S1;
+                S1 *= cof;
+                i++;
+            }
+            a=sum7;
+
+            double alldist = 0;
+            double s2 = S;
+            int day = 0;
+            while (alldist < 100)
+            {
+                alldist += s2;
+                s2 *= cof;
+                day++;
+            
+            }
+            b = day;
+
+
+            double s3 = S;
+            int day42 = 0;
+            while (s3 <= 42)
+            {
+                s3 *= cof;
+                day42++;
+
+            }
+            c = day42;
+
 
             // end
 
@@ -85,7 +180,7 @@ namespace Lab2
             double SY = 0;
 
             // code here
-
+         
             // end
 
             return (SS, SY);
