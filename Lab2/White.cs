@@ -4,6 +4,8 @@
     {
         const double E = 0.0001;
         public int Task1(int n)
+            for (int i = 1; i <= n; i++)
+                answer += 3 * i - 1;
         {
             int answer = 0;
 
