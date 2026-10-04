@@ -44,8 +44,8 @@ namespace Lab2
 
             while (true)
             {
-                double term = Math.Sin(i * math.Pow(x, i);
-                if (Math.Abs(term) < e))
+                double term = Math.Sin(i * math.Pow(x, i));
+                if (Math.Abs(term) < e)
                 {
                     break;
                 }
