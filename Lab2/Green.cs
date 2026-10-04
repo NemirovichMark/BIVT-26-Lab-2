@@ -139,24 +139,25 @@ namespace Lab2
             // code here
             for (double x = a; x <= b; x += h)
             {
-                double pw = x;  
+                double pw = x;
                 double sq = x * x;
                 int sign = 1;
                 int i = 0;
-                double term = sign * pw / (2 * i + 1);
+                double term = x;
 
+                SS += term;
                 while (Math.Abs(term) >= E)
                 {
-                    SS += term;
                     i++;
                     pw *= sq;
                     sign = -sign;
                     term = sign * pw / (2 * i + 1);
+                    SS += term;
                 }
 
                 SY += Math.Atan(x);
             }
-            // end
+// end
 
             return (SS, SY);
         }
