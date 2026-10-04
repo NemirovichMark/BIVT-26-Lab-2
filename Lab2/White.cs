@@ -98,3 +98,5 @@ namespace Lab2
 
             return (sum, Math.Cos(x));
         }
+    }
+}
