@@ -100,19 +100,20 @@ public double Task6(double x)
             return answer;
         }
 
-       public double Task8(double L, double v)
+      public double Task8(double L, double v)
 {
     const double R = 6371.0;
-    double currentHeight = 0;
     double hours = 0;
-    double distance = 0;
+    double currentL = 0;
 
-    while (distance <= L)
+    while (currentL <= L)
     {
-        hours += 1.0;
-        currentHeight = (v * hours) / 1000.0;
-        distance = Math.Sqrt(2 * R * currentHeight + currentHeight * currentHeight);
+        hours++;
+        double h = v * hours;
+        currentL = Math.Sqrt(2.0 * R * h + h * h);
     }
 
     return hours;
+}
+    }
 }
