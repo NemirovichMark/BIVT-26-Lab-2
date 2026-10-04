@@ -117,23 +117,24 @@ namespace Lab2
         {
             double SS = 0;
             double SY = 0;
+            double eps = 0.0001;
 
-            int steps = (int)Math.Round((b - a) / h);
-            for (int k = 0; k <= steps; k++)
+            for (double x = a; x <= b + (h / 1000); x += h)
             {
-                double x = a + k * h;
-
-                double row = 0;
-                for (int i = 0; ; i++)
+                int i = 0;
+                double smx = 0;
+                while (true)
                 {
-                    double s = Math.Pow(-1, i) * Math.Pow(x, 2 * i + 1) / (2 * i + 1);
-
-                    if (Math.Abs(s) < 0.0001)
+                    double c = Math.Pow(-1, i) * Math.Pow(x, 2 * i + 1) / (2 * i + 1);
+                    if (Math.Abs(c) < eps)
+                    {
+                        smx += c;
                         break;
-
-                    row += s;
+                    }
+                    smx += c;
+                    i++;
                 }
-                SS += row;
+                SS += smx;
                 SY += Math.Atan(x);
             }
 
