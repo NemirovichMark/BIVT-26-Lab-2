@@ -85,16 +85,17 @@ namespace Lab2
             int answer = 0;
 
             // code here
+            answer++; // тк счет элементов начинается с 1
             double E = 0.0001;
-            for (int n = 0; ; n++)
+            double ans = b;
+            while (Math.Abs(ans) > E)
             {
-                double ans = b * Math.Pow(q, n-1);
-                if (Math.Abs(ans) < E)
-                {
-                    answer = n;
-                    break;
-                }
+
+                answer++;
+                ans *= q;
             }
+
+            
             // end
 
             return answer;
