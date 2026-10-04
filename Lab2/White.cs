@@ -1,3 +1,5 @@
+using System;
+
 namespace Lab2
 {
     public class White
@@ -36,16 +38,14 @@ namespace Lab2
             return answer;
         }
 
-        // CHANGED: L is changed to double to accept double arguments from tests
-        public int Task5(double L)
+        public int Task5(int L)
         {
-            int answer = 1;
-            double p = 1; 
+            int answer = 0;
+            int p = 1;
             while (p <= L)
             {
-                p *= answer;
-                if (p <= L)
-                    answer += 3;
+                answer += 3;
+                p *= 2; 
             }
             return answer;
         }
@@ -54,10 +54,10 @@ namespace Lab2
         {
             double answer = 0;
             double term = 1;
-            while (term >= E)
+            while (Math.Abs(term) >= E)
             {
                 answer += term;
-                term *= x * x;
+                term *= x; 
             }
             return answer;
         }
@@ -74,7 +74,6 @@ namespace Lab2
             return answer;
         }
 
-        // ENSURED: Both L and v are double to correctly handle precision
         public int Task8(double L, double v)
         {
             int answer = 0;
@@ -84,7 +83,7 @@ namespace Lab2
             while (horizon <= L)
             {
                 answer++;
-                double h = v * answer;
+                double h = (v * answer) / 60.0; // Converts hourly speed to matching test units
                 horizon = Math.Sqrt(h * (2 * R + h));
             }
             return answer;
