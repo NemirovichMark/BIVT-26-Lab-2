@@ -23,10 +23,13 @@ namespace Lab2
         public double Task2(int n, double x)
         {
             double answer = 0;
-            
-            
+            double set = 1.0;
+
             for (int i = 0; i <= n; i += 1)
-                answer = answer + Math.Pow(x, -i);
+            {
+                answer = answer + set;
+                set /= x;
+            }
 
             // code here
 
@@ -55,15 +58,17 @@ namespace Lab2
         {
             double answer = 0;
             int i = 1;
-            double sum = Math.Pow(10, -4);
-            double a = Math.Sin(i * Math.Pow(x, i));
+            double sum = 0.0001;
+            double start = x;
+            double a = Math.Sin(i * start);
 
             // code here
             while (Math.Abs(a) >= sum)
             {
                 answer = answer + a;
+                start *= x;
                 i += 1;
-                a = Math.Sin(i * Math.Pow(x, i));
+                a = Math.Sin(i * start);
                 
             }
             // end
@@ -75,14 +80,14 @@ namespace Lab2
             int answer = 0;
             
             int n=1;
-            double first = 1 / Math.Pow(x, n);
-            double second= 1 / Math.Pow(x,  (n - 1));
+            double first =1.0/x;
+            double second= 1.0;
             // code here
-            while(Math.Abs(first-second)>=Math.Pow(10,-4) )
+            while(Math.Abs(first-second)>=0.0001 )
             {
                 n += 1;
-                first = 1 / Math.Pow(x, n);
-                second = 1 / Math.Pow(x, (n - 1));
+                second = first;
+                first /= x;
             }
             // end
 
