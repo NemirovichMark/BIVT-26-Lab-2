@@ -137,27 +137,29 @@ namespace Lab2
             double SY = 0;
 
             // code here
+            double eps = 0.0001;
+
             for (double x = a; x <= b; x += h)
             {
-                double pw = x;
-                double sq = x * x;
-                int sign = 1;
-                int i = 0;
+                double s = 0;
                 double term = x;
+                int i = 0;
 
-                SS += term;
-                while (Math.Abs(term) >= E)
+                while (true)
                 {
+                    s += term;
+
+                    if (Math.Abs(term) < eps)
+                        break;
+
                     i++;
-                    pw *= sq;
-                    sign = -sign;
-                    term = sign * pw / (2 * i + 1);
-                    SS += term;
+                    term = -term * x * x * (2 * i - 1) / (2 * i + 1);
                 }
 
+                SS += s;
                 SY += Math.Atan(x);
             }
-// end
+            // end
 
             return (SS, SY);
         }
