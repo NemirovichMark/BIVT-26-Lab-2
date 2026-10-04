@@ -72,19 +72,21 @@ namespace Lab2
         public double Task5(double x)
         {
             double answer = 0;
-            double ch = 1;
+            double ch = 0;
             double zn = 1;
-            double elem = 1;
+            double elem = 0; // ch / zn = 0 / 1
             int i = 1;
 
-            while (elem > 0.0001)
+            // Цикл с постусловием, как на блок-схеме
+            do
             {
-                answer += elem;
-                ch *= i;
+                ch += i;
                 zn *= x;
-                elem = zn / ch;
+                answer += elem;
+                elem = ch / zn;
                 i++;
-            }
+            } while (elem > 0.0001);
+
             return answer;
         }
 
@@ -102,10 +104,8 @@ namespace Lab2
 
         public (double a, int b, int c) Task7(double S, double I)
         {
+            // 1. Суммарный путь за 7 дней
             double a = 0;
-            int b = 0;
-            int c = 0;
-
             double currentDist = S;
             for (int i = 0; i < 7; i++)
             {
@@ -113,20 +113,25 @@ namespace Lab2
                 currentDist *= (1 + I / 100.0);
             }
 
-            currentDist = S;
+            // 2. Дней до суммарного пути 100 км
+            int b = 0;
             double totalDist = 0;
-            int days = 0;
-            while (b == 0 || c == 0)
+            currentDist = S;
+            while (true)
             {
-                days++;
                 totalDist += currentDist;
-
-                if (b == 0 && totalDist >= 100) b = days;
-                if (c == 0 && currentDist > 42) c = days;
-
+                b++;
+                if (totalDist >= 100 - E) break;
                 currentDist *= (1 + I / 100.0);
+            }
 
-                if (days > 1000) break;
+            // 3. Дней до дневной нормы больше 42 км
+            int c = 1;
+            currentDist = S;
+            while (currentDist <= 42)
+            {
+                c++;
+                currentDist *= (1 + I / 100.0);
             }
 
             return (a, b, c);
@@ -144,7 +149,8 @@ namespace Lab2
 
                 while (true)
                 {
-                    term = term * (2 * i + 1) / (2 * i - 1) * (x * x) / i;
+                    // 2.0 * i + 1 даёт деление с плавающей точкой, а не целочисленное
+                    term = term * (2.0 * i + 1) / (2 * i - 1) * (x * x) / i;
                     s += term;
                     i++;
                     if (Math.Abs(term) < 0.0001) break;
