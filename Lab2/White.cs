@@ -8,7 +8,7 @@ namespace Lab2
             int answer = 0;
 // code here
 
-            for (int i = 1; i <= n i++)
+            for (int i = 1; i <= n i++);
                 answer +=3 * i - 1;
         // end
 
@@ -30,9 +30,10 @@ namespace Lab2
         long answer = 0;
 
         // code here
-  answer = 1
+     answer = 1;
       for (int i = 1; i <= n; i++)
           answer *= i;
+    }
         // end
 
         return answer;
