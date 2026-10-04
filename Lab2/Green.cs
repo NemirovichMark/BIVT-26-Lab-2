@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace Lab2
 {
@@ -10,9 +10,12 @@ namespace Lab2
         {
             double answer = 0;
 
-            // code here
-
-            // end
+            for (int i = 1; i <= n; i ++)
+            {
+                double a = 2 * i;
+                double b = a + 1;
+                answer += (a / b);
+            }
 
             return answer;
         }
@@ -20,9 +23,12 @@ namespace Lab2
         {
             double answer = 0;
 
-            // code here
-
-            // end
+            for (int i = 0; i <= n; i++)
+            {
+                int b = -1 * i;
+                double a = Math.Pow(x, b);
+                answer += a;
+            }
 
             return answer;
         }
@@ -30,9 +36,17 @@ namespace Lab2
         {
             long answer = 0;
 
-            // code here
+            for (int i = 0; i <= n; i ++)
+            {
+                long fact = 1;
 
-            // end
+                for (int j = 1; j <= i; j ++)
+                {
+                    fact *= j; 
+                }
+
+                answer += fact;
+            }
 
             return answer;
         }
@@ -40,9 +54,19 @@ namespace Lab2
         {
             double answer = 0;
 
-            // code here
-
-            // end
+            for (int i = 1; ; i++)
+            {
+                double s = Math.Pow(x, i);
+                double si = Math.Sin(i * s);
+                if (Math.Abs(si) < Math.Pow(10, -4))
+                {
+                    break;
+                }
+                else
+                {
+                    answer += si;
+                }
+            }
 
             return answer;
         }
@@ -50,31 +74,44 @@ namespace Lab2
         {
             int answer = 0;
 
-            // code here
-
-            // end
-
+            for (int n = 0; ; n++)
+            {
+                double a = 1 / Math.Pow(x, n);
+                double b = 1 / Math.Pow(x, n - 1);
+                if (Math.Abs(a - b) < Math.Pow(10, -4))
+                {
+                    answer = n;
+                    break;
+                }
+            }
+            
             return answer;
         }
         public int Task6(int limit)
         {
-            int answer = 0;
+            int answer = 0; int elem = 1;
+            for (int i = 0;elem < limit; i++)
+            {
+                elem *= 2;
+                answer += elem;
 
-            // code here
+            }
 
-            // end
 
             return answer;
         }
 
         public int Task7(double L)
         {
-            int answer = 0;
+            int answer = 0; int c = 0;
 
-            // code here
-
-            // end
-
+            double Da = Math.Pow(10, -10);
+            while (L > Da)
+            {
+                L /= 2;
+                c += 1;
+            }
+            answer = c;
             return answer;
         }
         public (double SS, double SY) Task8(double a, double b, double h)
@@ -82,9 +119,26 @@ namespace Lab2
             double SS = 0;
             double SY = 0;
 
-            // code here
+            for (double x = a; x <= b; x += h)
+            {
 
-            // end
+                double row = 0;
+                for (int i = 0; ; i++)
+                {
+                    double s = Math.Pow(-1, i) * Math.Pow(x, 2 * i + 1) / (2 * i + 1);
+                    if (Math.Abs(s) > 0.0001)
+                    {
+                        row += s;
+
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                SS += row;
+                SY += Math.Atan(x);
+            }
 
             return (SS, SY);
         }
