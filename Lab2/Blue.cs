@@ -142,11 +142,12 @@ namespace Lab2
                 double term = 1;
                 int i = 1;
 
-                while (Math.Abs(term) >= 0.0001)
+                while (true)
                 {
                     term = term * (2 * i + 1) / (2 * i - 1) * (x * x) / i;
                     s += term;
                     i++;
+                    if (Math.Abs(term) < 0.0001) break;
                 }
                 SS += s;
                 SY += (1 + 2 * x * x) * Math.Exp(x * x);
