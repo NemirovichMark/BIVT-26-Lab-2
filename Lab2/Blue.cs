@@ -14,11 +14,13 @@ namespace Lab2
             double answer = 0;
             double s = 0;
             double s_x = 1;
+
             for (int i = 1; i <= n; i++)
             {
                 s += Math.Sin(x * i) / s_x;
                 s_x *= x;
             }
+
             answer = s;
             return answer;
         }
@@ -30,6 +32,7 @@ namespace Lab2
             double fact = 1;
             double pow = 1;
             int sign = -1;
+
             for (int i = 1; i <= n; i++)
             {
                 fact *= i;
@@ -37,6 +40,7 @@ namespace Lab2
                 s += sign * pow / fact;
                 sign = -sign;
             }
+
             answer = s;
             return answer;
         }
@@ -44,14 +48,18 @@ namespace Lab2
         public long Task3(int n)
         {
             long answer = 0;
-            long a = 0, b = 1;
+            long a = 0;
+            long b = 1;
+
             for (int i = 0; i < n; i++)
             {
                 answer += a;
+
                 long temp = a + b;
                 a = b;
                 b = temp;
             }
+
             return answer;
         }
 
@@ -60,12 +68,14 @@ namespace Lab2
             int answer = 0;
             int sum = 0;
             int term = a;
+
             while (sum + term <= L)
             {
                 sum += term;
                 term += h;
                 answer++;
             }
+
             return answer;
         }
 
@@ -74,18 +84,18 @@ namespace Lab2
             double answer = 0;
             double ch = 0;
             double zn = 1;
-            double elem = 0; // ch / zn = 0 / 1
+            double elem = 0;
             int i = 1;
 
-            // Цикл с постусловием, как на блок-схеме
             do
             {
                 ch += i;
                 zn *= x;
-                answer += elem;
                 elem = ch / zn;
+                answer += elem;
                 i++;
-            } while (elem > 0.0001);
+            }
+            while (elem > E);
 
             return answer;
         }
@@ -94,71 +104,89 @@ namespace Lab2
         {
             int answer = 0;
             long cells = S;
+
             while (cells < L)
             {
                 cells *= 2;
                 answer += h;
             }
+
             return answer;
         }
 
         public (double a, int b, int c) Task7(double S, double I)
         {
-            // 1. Суммарный путь за 7 дней
             double a = 0;
+            int b = 0;
+            int c = 1;
+
             double currentDist = S;
+
+            // Суммарный путь за 7 дней
             for (int i = 0; i < 7; i++)
             {
                 a += currentDist;
-                currentDist *= (1 + I / 100.0);
+                currentDist *= 1 + I / 100.0;
             }
 
-            // 2. Дней до суммарного пути 100 км
-            int b = 0;
+            // Количество дней, за которые суммарный путь
+            // станет не меньше 100 км
+            int days = 0;
             double totalDist = 0;
             currentDist = S;
-            while (true)
+
+            while (totalDist < 100)
             {
                 totalDist += currentDist;
-                b++;
-                if (totalDist >= 100 - E) break;
-                currentDist *= (1 + I / 100.0);
+                days++;
+                currentDist *= 1 + I / 100.0;
             }
 
-            // 3. Дней до дневной нормы больше 42 км
-            int c = 1;
+            b = days;
+
+            // Количество дней до того момента,
+            // когда дневной пробег станет больше 42 км
             currentDist = S;
+            c = 1;
+
             while (currentDist <= 42)
             {
+                currentDist *= 1 + I / 100.0;
                 c++;
-                currentDist *= (1 + I / 100.0);
             }
 
-            return (a, b, c);
+            (double a, int b, int c) answer = (a, b, c);
+
+            return answer;
         }
 
         public (double SS, double SY) Task8(double a, double b, double h)
         {
             double SS = 0;
             double SY = 0;
+
             for (double x = a; x <= b; x += h)
             {
                 double s = 1;
                 double term = 1;
                 int i = 1;
 
-                while (true)
+                while (Math.Abs(term) >= E)
                 {
-                    // 2.0 * i + 1 даёт деление с плавающей точкой, а не целочисленное
-                    term = term * (2.0 * i + 1) / (2 * i - 1) * (x * x) / i;
+                    term = term * (2.0 * i + 1) / (2 * i - 1)
+                           * (x * x) / i;
+
                     s += term;
                     i++;
-                    if (Math.Abs(term) < 0.0001) break;
                 }
+
                 SS += s;
                 SY += (1 + 2 * x * x) * Math.Exp(x * x);
             }
-            return (SS, SY);
+
+            (double SS, double SY) answer = (SS, SY);
+
+            return answer;
         }
     }
 }
