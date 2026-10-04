@@ -56,6 +56,8 @@ public long Task4(int a, int b)
 }
    public int Task5(int L)
 {
+    if (L < 1) return 1;
+
     long product = 1;
     int n = 1;
 
@@ -100,20 +102,11 @@ public double Task6(double x)
             return answer;
         }
 
-      public double Task8(double L, double v)
+     public double Task8(double L, double v)
 {
     const double R = 6371.0;
-    double hours = 0;
-    double currentL = 0;
 
-    while (currentL <= L)
-    {
-        hours++;
-        double h = v * hours;
-        currentL = Math.Sqrt(2.0 * R * h + h * h);
-    }
+    double h = Math.Sqrt(R * R + L * L) - R;
 
-    return hours;
-}
-    }
+    return h / v;
 }
