@@ -86,8 +86,10 @@
             // code here
             int sum = 0;
             while (sum < n)
+            {
                 answer++;
                 sum += answer;
+            }
             // end
 
             return answer;
