@@ -49,15 +49,15 @@ namespace Lab2
 
         public int Task5(int L)
         {
-            if (L < 0) return 1;
+            if (L < 1) return 1;
 
             int n = 1;
             long p = 1;
 
             while (p <= L)
             {
-                p *= (n + 3);
                 n += 3;
+                p *= n;
             }
 
             return n;
