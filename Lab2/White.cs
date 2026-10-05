@@ -52,7 +52,7 @@ namespace Lab2
            // if (L < 1) return 1; // no need here
 
             int n = 1;
-            long P = 1;
+            int P = 1;
 
             while (P <= L)
             {
