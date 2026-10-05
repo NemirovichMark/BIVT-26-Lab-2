@@ -53,11 +53,13 @@ namespace Lab2
 
             int n = 1;
             long p = 1;
+
             while (p <= L)
             {
                 n += 3;
                 p *= n;
             }
+
             return n;
         }
 
