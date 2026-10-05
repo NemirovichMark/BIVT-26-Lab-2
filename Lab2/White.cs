@@ -52,15 +52,15 @@ namespace Lab2
             if (L < 1) return 1;
 
             int n = 1;
-            long p = 1;
+            long P = 1;
 
-            while (p <= L)
+            while (P <= L)
             {
                 n += 3;
-                p *= n;
+                P *= n;
             }
 
-            return n;
+            return n - 3;
         }
 
         public double Task6(double x)
