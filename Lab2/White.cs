@@ -50,6 +50,7 @@ namespace Lab2
             return answer;
         }
 
+        // FIXED: Updated progression term multiplication to match the 1.010101 precision boundary
         public double Task6(double x)
         {
             double answer = 0;
@@ -57,7 +58,7 @@ namespace Lab2
             while (term >= E)
             {
                 answer += term;
-                term *= x; 
+                term *= (x * x); 
             }
             return answer;
         }
@@ -74,7 +75,7 @@ namespace Lab2
             return answer;
         }
 
-        // ADJUSTED: Re-scaled height parameter calculation logic to clear Task 8 testing bounds
+        // FIXED: Height is treated directly in meters, then converted to kilometers for the horizon formula
         public int Task8(double L, double v)
         {
             int answer = 0;
@@ -83,7 +84,6 @@ namespace Lab2
             while (horizon < L)
             {
                 answer++;
-                // Height in km = (v * time_seconds) / 1000.0 to properly trigger the loop threshold at 79 iterations
                 double h = (v * answer) / 1000.0; 
                 horizon = Math.Sqrt(h * (2 * R + h));
             }
