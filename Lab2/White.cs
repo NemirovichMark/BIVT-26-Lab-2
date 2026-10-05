@@ -57,8 +57,8 @@
             long p = 1;
             while (p <= L )
             {
-                p *= answer;
                   answer += 3;
+                    p *= answer;
             }
             // end
 
