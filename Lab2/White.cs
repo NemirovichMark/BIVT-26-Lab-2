@@ -74,21 +74,18 @@ namespace Lab2
             return answer;
         }
 
-        // FIXED: Adjusted Task 8 logic to increment the height parameter accurately to hit the 79 steps threshold
+        // FIXED: Using standard math variant logic where v scales directly without sub-unit downscaling
         public int Task8(double L, double v)
         {
             int answer = 0;
             const double R = 6371.0; 
             double horizon = 0;
             
-            // v represents initial height or base speed height adjustment
-            double h = v; 
-
             while (horizon < L)
             {
                 answer++;
+                double h = v * answer; 
                 horizon = Math.Sqrt(h * (2 * R + h));
-                h += 0.001; // Standard variant incrementing height by 1 meter (0.001 km) per step
             }
             return answer;
         }
