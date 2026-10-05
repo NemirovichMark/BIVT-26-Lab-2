@@ -53,16 +53,16 @@
         public int Task5(int L)
         {
             // code here
-           int answer = 1;
             long p = 1;
+            int n = 1;
             while (p <= L )
             {
-                  answer += 3;
-                    p *= answer;
+                n += 3;
+                p *= n;
             }
             // end
 
-            return answer;
+            return n;
         }
         public double Task6(double x)
         {
