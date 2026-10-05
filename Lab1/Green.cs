@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Lab2
@@ -156,3 +157,4 @@ namespace Lab2
             return (SS, SY);
         }
     }
+}
