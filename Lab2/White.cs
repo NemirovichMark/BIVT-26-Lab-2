@@ -55,8 +55,6 @@
 
             // code here
            int answer = 1;
-
-            answer = 1;
             long p = 1;
             while (p <= L )
             {
