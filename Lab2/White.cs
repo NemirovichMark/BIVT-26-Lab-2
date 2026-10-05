@@ -58,9 +58,11 @@
             answer = 1;
             long p = 1;
             while (p <= L )
+            {
                 p *= answer;
                 if (p <= L)
                     answer += 3;
+            }
             // end
 
             return answer;
@@ -72,8 +74,10 @@
             // code here
             double term = 1;
             while (term >= E)
+            {
                 answer += term;
                 term *= x * x;
+            }
             // end
 
             return answer;
@@ -102,9 +106,11 @@
             // code here
             double horizon = 0;
             while (horizon <= L)
+            {
                 answer++;
                 double h = v * answer;
                 horizon = Math.Sqrt(h * (2 * R + h));
+            }
             // end
 
             return answer;
