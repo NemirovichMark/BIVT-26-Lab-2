@@ -127,7 +127,7 @@ namespace Lab2
             }
 
             // end
-/////////
+
             return answer;
         }
 
@@ -136,7 +136,6 @@ namespace Lab2
             int answer = 0;
 
             // code here
-            double Da = 0.0000000001;
             int cuts = 0;
             while (L > Da)
             {
@@ -154,7 +153,21 @@ namespace Lab2
             double SY = 0;
 
             // code here
+            for (double x = a; x <= b + 1e-9; x += h)
+            {
+                double s = 0, term = x;
+                int i = 0;
+          
+                while (Math.Abs(term) >= 0.0001)
+                {
+                    s += term;
+                    i++;
+                    term = -term * x * x * (2 * i - 1) / (2 * i + 1);
+                }
 
+                SS += s;
+                SY += Math.Atan(x);
+            }
             // end
 
             return (SS, SY);
