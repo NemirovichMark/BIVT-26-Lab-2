@@ -49,7 +49,7 @@ namespace Lab2
 
         public int Task5(int L)
         {
-            if (L < 1) return 1;
+           // if (L < 1) return 1; // no need here
 
             int n = 1;
             long P = 1;
