@@ -52,7 +52,6 @@
         }
         public int Task5(int L)
         {
-
             // code here
            int answer = 1;
             long p = 1;
@@ -63,7 +62,7 @@
             }
             // end
 
-            return answer - 3;
+            return answer;
         }
         public double Task6(double x)
         {
