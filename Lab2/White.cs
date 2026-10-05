@@ -56,8 +56,8 @@ namespace Lab2
 
             while (p <= L)
             {
+                p *= (n + 3);
                 n += 3;
-                p *= n;
             }
 
             return n;
