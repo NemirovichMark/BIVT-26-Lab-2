@@ -23,11 +23,14 @@ namespace Lab2
         public double Task2(int n, double x)
         {
             double answer = 1;
+            double term = 1;
+
 
             // code here
             for (int i=1; i<=n; i++)
             {
-                answer = answer + Math.Pow(x, -i);
+                term = term/x;
+                answer = answer + term;
             }
             
       
@@ -55,20 +58,17 @@ namespace Lab2
         {
             double answer = 0;
             int i = 1;
+            double power = x;
+            double f = Math.Sin(i * power);
             // code here
-            if (Math.Abs(x)<1)
+            while (Math.Abs(f) >= 0.0001)
             {
-                double f = Math.Sin(i* Math.Pow(x, i));
-                while (Math.Abs(f)>= Math.Pow(10, -4))
-                {
-                    answer = answer + f;
-                    i++;
-                    f = Math.Sin(i * Math.Pow(x, i));
-                }    
-                        
-                    
+                answer = answer + f;
+
+                i++;
+                power = power * x;
+                f = Math.Sin(i * power);
             }
-                
             // end
 
             return answer;
@@ -77,24 +77,21 @@ namespace Lab2
         {
             int answer = 0;
             int i = 0;
+            double b = 1/x;
+            double f = 1;
+
             // code here
-            if (Math.Abs(x)>1)
+            while (Math.Abs(b - f) >= 0.0001)
             {
-                for (i=1; ; i += 1)
-                {
-                    double f = 1 / Math.Pow(x, i);
-                    double b = 1 / Math.Pow(x, i-1);
-                    if (Math.Abs(b - f) < Math.Pow(10, -4))
-                    {
-                        answer = i;
-                        break;
-                    }
-                }
-                
+                i++;
+
+                b = f;
+                f = f / x;
             }
+            
             // end
 
-            return answer;
+            return i;
         }
         public int Task6(int limit)
         {
