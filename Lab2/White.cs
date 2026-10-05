@@ -52,20 +52,20 @@
         }
         public int Task5(int L)
         {
-            int answer = 0;
 
             // code here
+           int answer = 1;
+
             answer = 1;
             long p = 1;
             while (p <= L )
             {
                 p *= answer;
-                if (p <= L)
-                    answer += 3;
+                  answer += 3;
             }
             // end
 
-            return answer;
+            return answer - 3;
         }
         public double Task6(double x)
         {
