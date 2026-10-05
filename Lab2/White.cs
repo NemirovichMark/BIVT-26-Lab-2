@@ -53,7 +53,7 @@
         public int Task5(int L)
         {
             // code here
-            long p = 1;
+            int p = 1;
             int n = 1;
             while (p <= L )
             {
