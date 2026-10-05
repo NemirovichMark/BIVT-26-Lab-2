@@ -60,7 +60,7 @@ namespace Lab2
                 P *= n;
             }
 
-            return n - 3;
+            return n;
         }
 
         public double Task6(double x)
