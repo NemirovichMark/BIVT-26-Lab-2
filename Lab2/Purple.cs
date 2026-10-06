@@ -141,26 +141,22 @@ namespace Lab2
 
             // code here
             double es = 0.0001;
-            double y;
-            for(double x=a; x<=b; x += h)
+            for(double x=a; x<=b+es; x += h)
             {
-                double pwr = 1;
-                double s = 1;
-                if (a % 2 == 0)
-                {
-                    s *= -1;
-                }
+                double pwr = 1, s = 1, f;
+                int i = 0;
+                SS++;
                 do {
-                    pwr *= x;
-                    s *= -(x*x);
-                    SS += s;
-                    y=Math.Cos(s);
-                    SY += y;
+                    pwr *= -x*x;
+                    s *= ++i * ++i;
+                    f = pwr / s;
+                    SS += f;
                 }
-                while (Math.Abs(s) >= es);
+                while (Math.Abs(f) >= es);
+                SY += Math.Cos(x);
             }
             // end
-
+            Console.WriteLine($"SS:{SS} SY:{SY}");
             return (SS, SY);
         }
     }
