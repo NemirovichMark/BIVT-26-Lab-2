@@ -1,8 +1,15 @@
-
+# Visual Studio
 .vs/
-bin/
-obj/
-*.vsidx
-
-*.user
 *.suo
+*.user
+*.vsidx
+*.testlog
+TestStore/
+
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# JetBrains Rider / VS Code
+.idea/
+.vscode/
