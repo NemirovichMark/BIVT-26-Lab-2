@@ -152,21 +152,23 @@ namespace Lab2
             double SS = 0;
             double SY = 0;
 
-            // code here
-            for (double x = a; x <= b + 1e-9; x += h)
-            {
-                double s = 0, term = x;
-                int i = 0;
-          
-                while (Math.Abs(term) >= 0.0001)
-                {
-                    s += term;
-                    i++;
-                    term = -term * x * x * (2 * i - 1) / (2 * i + 1);
-                }
 
-                SS += s;
+            // code here
+            int steps = (int)((b - a) / h + E);
+            for (int i=0; i<=steps; i++)
+            {
+                double x = a + i * h;
+                double stepen = x; int sign = 1; int m = 0; double t; double p = x;
+                do
+                {
+                    t = sign * stepen / (2 * m + 1);
+                    t = sign * p / (2 * m + 1);
+                    SS += t; stepen *= x * x;
+                    p *= x * x; sign = -sign; m++;
+                } while (Math.Abs(t) >= E);
                 SY += Math.Atan(x);
+
+
             }
             // end
 
