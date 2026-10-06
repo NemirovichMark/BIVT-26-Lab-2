@@ -168,33 +168,37 @@ namespace Lab2
             double SS = 0;
             double SY = 0;
             
-            // code here
-            double bR = Math.Round(b, 9);         
+            //code here
+            
+            double bR = Math.Round(b, 9);    
 
-            for (int k = 0; ; k++)                
+            for (int k = 0; ; k++)           
             {
-                double x = a + k * h;             
-                if (Math.Round(x, 9) > bR) break; 
+                double x = a + k * h;        
+                if (Math.Round(x, 9) > bR) break;   
 
-                
-                double s = 0;                     
-                double f = 1;                     
+               
+                double s = 0;               
+                double fact = 1;             
+                double powVal = 1;           
                 int i = 0;
-                double s1;
+                double t;
 
                 do
                 {
-                    s1 = (2 * i + 1) * Math.Pow(x, 2 * i) / f;
-                    s += s1;                    
-                    i++;
-                    f *= i;                       
+                    t = (2 * i + 1) * powVal / fact;   
+                    s += t;                            
+
+                    i++;                                   
+                    fact *= i;                           
+                    powVal *= x * x;                       
                 }
-                while (Math.Abs(s1) >= E);    
+                while (Math.Abs(t) >= E);             
 
-                SS += s;                          
-
-               
-                double y = (1 + 2 * x * x) * Math.Exp(x * x);
+                SS += s;                                   
+                
+                double xSq = x * x;
+                double y = (1 + 2 * xSq) * Math.Exp(xSq);
                 SY += y;
             }
             
