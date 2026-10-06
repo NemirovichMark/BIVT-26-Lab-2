@@ -4,7 +4,7 @@
     {
         const double E = 0.0001;
         public int Task1(int n)
-           
+         
         {
             int answer = 0;
 
