@@ -147,18 +147,20 @@ namespace Lab2
             double SY = 0;
 
             // code here
-            for (double x = a; x <= b + 1e-10; x += h)
+            for (double x = a; x <= b + 0.0001; x += h)
             {
                 double term = x;
                 double S = 0;
                 int i = 0;
 
-                while (Math.Abs(term) > E)
+                while (true)
                 {
                     S += term;
 
-                    term = -term * x * x * (2.0 * i + 1) / (2.0 * i + 3);
+                    if (Math.Abs(term) < E)
+                    break;
 
+                    term = -term * x * x * ((2.0 * i + 1) / (2.0 * i + 3));
                     i++;
                 }
 
