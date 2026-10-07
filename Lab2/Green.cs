@@ -153,7 +153,7 @@ namespace Lab2
                 double S = 0;
                 int i = 0;
 
-                while (Math.Abs(term) > E)
+                while (Math.Abs(term) >= E)
                 {
                     S += term;
 
