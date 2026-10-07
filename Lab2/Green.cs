@@ -147,13 +147,13 @@ namespace Lab2
             double SY = 0;
 
             // code here
-            for (double x = a; x <= b + 1e-4; x += h)
+            for (double x = a; x <= b + 1e-10; x += h)
             {
                 double term = x;
                 double S = 0;
                 int i = 0;
 
-                while (Math.Abs(term) >= E)
+                while (Math.Abs(term) > E)
                 {
                     S += term;
 
