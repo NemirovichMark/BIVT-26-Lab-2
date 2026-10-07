@@ -1,0 +1,15 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.vsidx
+*.testlog
+TestStore/
+
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# JetBrains Rider / VS Code
+.idea/
+.vscode/
