@@ -21,27 +21,27 @@ namespace Lab2
         public double Task2(int n, double x)
         {
             double answer = 0;
+            double a = 1;
 
             for (int i = 0; i <= n; i++)
             {
-                int b = -1 * i;
-                double a = Math.Pow(x, b);
                 answer += a;
+                a /= x;
             }
-
             return answer;
         }
         public long Task3(int n)
         {
+
             long answer = 0;
 
-            for (int i = 0; i <= n; i ++)
+            for (int i = 0; i <= n; i++)
             {
                 long fact = 1;
 
-                for (int j = 1; j <= i; j ++)
+                for (int j = 1; j <= i; j++)
                 {
-                    fact *= j; 
+                    fact *= j;
                 }
 
                 answer += fact;
@@ -53,18 +53,17 @@ namespace Lab2
         {
             double answer = 0;
 
+            double s = 1;
+
             for (int i = 1; ; i++)
             {
-                double s = Math.Pow(x, i);
+                s *= x;
                 double si = Math.Sin(i * s);
-                if (Math.Abs(si) < Math.Pow(10, -4))
-                {
+
+                if (Math.Abs(si) < E)
                     break;
-                }
-                else
-                {
-                    answer += si;
-                }
+
+                answer += si;
             }
 
             return answer;
@@ -73,71 +72,81 @@ namespace Lab2
         {
             int answer = 0;
 
+            double b = 1;
+
             for (int n = 1; ; n++)
             {
-                double a = 1 / Math.Pow(x, n);
-                double b = 1 / Math.Pow(x, n - 1);
-                if (Math.Abs(a - b) < Math.Pow(10, -4))
+                double a = b / x;
+
+                if (Math.Abs(a - b) < E)
                 {
                     answer = n;
                     break;
                 }
+
+                b = a;
             }
-            
+
+
             return answer;
         }
         public int Task6(int limit)
         {
+
             int answer = 0; int elem = 1;
-            for (int i = 0;elem < limit; i++)
+            for (int i = 0; elem < limit; i++)
             {
                 elem *= 2;
                 answer += elem;
 
             }
-
-
             return answer;
         }
 
         public int Task7(double L)
         {
-            int answer = 0; int c = 0;
+            int answer = 0;
 
-            double Da = Math.Pow(10, -10);
             while (L > Da)
             {
                 L /= 2;
-                c += 1;
+                answer++;
             }
-            answer = c;
+
             return answer;
         }
         public (double SS, double SY) Task8(double a, double b, double h)
         {
             double SS = 0;
             double SY = 0;
-            double eps = 0.0001;
 
-            for (double x = a; x <= b + (h / 1000); x += h)
+
+            for (double x = a; x <= b + h / 1000; x += h)
             {
                 int i = 0;
                 double smx = 0;
+                double c = x;
+                double step = x * x;
+
                 while (true)
                 {
-                    double c = Math.Pow(-1, i) * Math.Pow(x, 2 * i + 1) / (2 * i + 1);
-                    if (Math.Abs(c) < eps)
+                    double term = c / (2 * i + 1);
+                    if (i % 2 != 0) term = -term;
+
+                    if (Math.Abs(term) < E)
                     {
-                        smx += c;
+                        smx += term;   
                         break;
                     }
-                    smx += c;
+
+                    smx += term;
+                    c *= step;
                     i++;
                 }
+
                 SS += smx;
                 SY += Math.Atan(x);
             }
-
             return (SS, SY);
         }
     }
