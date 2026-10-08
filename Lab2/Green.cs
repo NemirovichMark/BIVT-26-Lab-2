@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 
 namespace Lab2
 {
@@ -11,11 +10,15 @@ namespace Lab2
         {
             double answer = 0;
 
-            for (int i = 2; i <= n; i+=2)
+            // code here
+
+            for (int i = 2; i <= n; i += 2)
             {
                 double a = i;
-                answer += a/(a+1);
+                answer += a / (a + 1);
             }
+
+            // end
 
             return answer;
         }
@@ -23,18 +26,24 @@ namespace Lab2
         {
             double answer = 0;
 
+            // code here
+
+            double c = 1;
             for (int i = 0; i <= n; i++)
             {
-                answer += (Math.Pow(x, -i));
+                answer += c;
+                c /= x;
             }
+                // end
 
-            return answer;
+                return answer;
         }
         public long Task3(int n)
         {
             long answer = 0;
 
-            for (int i = 0; i <= n;i++)
+            // code here
+            for (int i = 0; i <= n; i++)
             {
                 long fc = 1;
                 for (int j = 1; j <= i; j++)
@@ -43,23 +52,29 @@ namespace Lab2
                 }
                 answer += fc;
             }
+            // end
 
             return answer;
         }
         public double Task4(double x)
         {
             double answer = 0;
+
+            // code here
+
             int i = 1;
-            double eps = Math.Pow(10, -4);
+            double eps = 0.0001;
+            double c = x;
             while (true)
             {
-                double otv = Math.Sin(i * Math.Pow(x, i));
+                double otv = Math.Sin(i * c);
                 if (Math.Abs(otv) < eps)
                 {
                     break;
                 }
                 answer += otv;
                 i++;
+                c *= x;
             }
 
             // end
@@ -69,20 +84,25 @@ namespace Lab2
         public int Task5(double x)
         {
             int answer = 0;
-            double eps = Math.Pow(10, -4);
+
+            // code here
+            double eps = 0.0001;
+            double dr = 1.0 / x;
+            double drr = 1.0;
+
             int n = 1;
             while (true)
             {
-                double dr = 1.0 / Math.Pow(x, n);
-                double drr = 1.0 / Math.Pow(x, n-1);
-                if (Math.Abs(dr - drr)<eps)
+                
+                if (Math.Abs(dr - drr) < eps)
                 {
                     answer += n;
                     break;
                 }
+                drr = dr;
+                dr /= x;
                 n++;
             }
-
             // end
 
             return answer;
@@ -91,6 +111,7 @@ namespace Lab2
         {
             int answer = 0;
 
+            // code here
             int elem = 1;
             int i = 0;
             while (true)
@@ -103,7 +124,6 @@ namespace Lab2
                 answer += elem;
                 i++;
             }
-
             // end
 
             return answer;
@@ -112,13 +132,14 @@ namespace Lab2
         public int Task7(double L)
         {
             int answer = 0;
-            double d = Math.Pow(10, -10);
+
+            // code here
+            double d = 0.0000000001;
             while (L > d)
             {
                 L /= 2;
                 answer++;
             }
-
             // end
 
             return answer;
@@ -127,10 +148,12 @@ namespace Lab2
         {
             double SS = 0;
             double SY = 0;
+
+            // code here
             double eps = 0.0001;
 
 
-            for (double x = a; x <= b+(h/1000); x += h)
+            for (double x = a; x <= b + (h / 1000); x += h)
             {
                 int i = 0;
                 double smx = 0;
@@ -146,8 +169,9 @@ namespace Lab2
                     i++;
                 }
                 SS += smx;
-                SY += Math.Atan(x);  
+                SY += Math.Atan(x);
             }
+            // end
 
             return (SS, SY);
         }
