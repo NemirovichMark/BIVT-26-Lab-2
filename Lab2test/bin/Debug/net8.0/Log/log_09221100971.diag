@@ -1,0 +1,16 @@
+2026-09-22T11:51:01.0066607+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Version: 1.4.3+c252b64ad913ea9411fc5d17bfd5580d2d061497
+2026-09-22T11:51:01.0252992+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Logging mode: asynchronous
+2026-09-22T11:51:01.0270126+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Logging level: Information
+2026-09-22T11:51:01.0270200+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION CreateBuilderAsync entry time: 11:51:00.949
+2026-09-22T11:51:01.0291709+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION PID: 13728
+2026-09-22T11:51:01.0293862+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Runtime information: win-x64 - .NET 8.0.31
+2026-09-22T11:51:01.0294004+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Runtime location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\8.0.31\System.Private.CoreLib.dll
+2026-09-22T11:51:01.0294152+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION IsDynamicCodeSupported: True
+2026-09-22T11:51:01.0294202+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Test module: C:\Users\HONOR\source\repos\BIVT-26-Lab-2\Lab2test\bin\Debug\net8.0\Lab2test.dll
+2026-09-22T11:51:01.0296631+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Command line arguments: '--server --diagnostic --diagnostic-verbosity Information --diagnostic-output-directory C:\Users\HONOR\source\repos\BIVT-26-Lab-2\Lab2test\bin\Debug\net8.0\Log --results-directory C:\Users\HONOR\source\repos\BIVT-26-Lab-2\Lab2\TestResults --client-port 64823'
+2026-09-22T11:51:01.0310577+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION TESTINGPLATFORM_DEFAULT_HANG_TIMEOUT: ''
+2026-09-22T11:51:01.0585114+00:00 Microsoft.Testing.Platform.Hosts.TestHostBuilder INFORMATION Setting RegisterEnvironmentVariablesConfigurationSource: 'True'
+2026-09-22T11:51:01.0629197+00:00 Microsoft.Testing.Platform.Configurations.JsonConfigurationSource+JsonConfigurationProvider INFORMATION Config file 'C:\Users\HONOR\source\repos\BIVT-26-Lab-2\Lab2test\bin\Debug\net8.0\Lab2test.testconfig.json' not found.
+2026-09-22T11:51:01.0642626+00:00 Microsoft.Testing.Platform.Hosts.TestHostBuilder INFORMATION Setting PlatformExitProcessOnUnhandledException: 'False', config file: False environment variable:  VSTest mode: False
+2026-09-22T11:51:01.2209612+00:00 Microsoft.Testing.Platform.Requests.TestHostTestFrameworkInvoker INFORMATION Test framework UID: 'MSTestExtension' Version: '3.6.4' DisplayName: 'MSTest' Description: 'MSTest Framework for Microsoft Testing Platform'
+2026-09-22T11:51:01.3253391+00:00 Microsoft.Testing.Extensions.VSTestBridge.ObjectModel.MessageLoggerAdapter INFORMATION Включена параллелизация тестов для C:\Users\HONOR\source\repos\BIVT-26-Lab-2\Lab2test\bin\Debug\net8.0\Lab2test.dll (рабочие роли: 1, область: MethodLevel)
