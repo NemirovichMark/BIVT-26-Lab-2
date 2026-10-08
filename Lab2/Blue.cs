@@ -180,7 +180,34 @@ namespace Lab2
             double SY = 0;
 
             // code here
-         
+            double E = 0.0001;
+            double b1 = Math.Round(b, 9);
+
+            for (int n = 0; ; n++)
+            {
+                double x = a + n * h;
+                if (Math.Round(x, 9) > b1)
+                {
+                    break;
+                }
+                double s = 0;
+                double f = 1;
+                double pow = 1;
+                double s1;
+                int i = 0;
+                do
+                {
+                    s1 = (2 * i + 1) * pow / f;
+                    s += s1;
+                    i++;
+                    f *= i;
+                    pow *= x * x;
+                }
+                while (Math.Abs(s1) >= E);
+                SS += s;
+                double y = (1 + 2 * x * x) * Math.Exp(x * x);
+                SY += y;
+            }
             // end
 
             return (SS, SY);
