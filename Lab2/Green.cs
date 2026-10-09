@@ -11,6 +11,12 @@ namespace Lab2
             double answer = 0;
 
             // code here
+            double sum = 0;
+            for (double a = 2; a <= n; a += 2 )
+            {
+                sum = sum + (a / (a + 1));
+            }
+            answer = sum;
 
             // end
 
@@ -21,6 +27,15 @@ namespace Lab2
             double answer = 0;
 
             // code here
+            double sum = 1.0;
+            double addend = 1.0;
+
+            for (int k = 1; k <= n; k++)
+                { 
+                addend /= x;
+                sum += addend;
+                }
+            answer = sum;
 
             // end
 
@@ -31,6 +46,15 @@ namespace Lab2
             long answer = 0;
 
             // code here
+            long summ = 1;
+            long fact = 1;
+
+            for (int k = 1; k <= n; k++)
+            {
+               fact = fact* k;
+               summ += fact;
+            }
+            answer = summ;
 
             // end
 
@@ -41,6 +65,17 @@ namespace Lab2
             double answer = 0;
 
             // code here
+            double s = 0, a;
+            int n = 1;
+            double p = x;
+            do
+            {
+                a = Math.Sin(n * p);
+                s = s + a;
+                n = n + 1;
+                p = p * x;
+            } while (Math.Abs(a) > E); 
+            answer = s;
 
             // end
 
@@ -51,6 +86,18 @@ namespace Lab2
             int answer = 0;
 
             // code here
+            int n = 1;
+            
+            double per = 1.0 / x;
+            double vt = 1.0;
+
+            while (Math.Abs(per - vt) > E)
+            {
+                n++;
+                vt = per;
+                per /= x;
+            } 
+            answer = n;
 
             // end
 
@@ -61,6 +108,15 @@ namespace Lab2
             int answer = 0;
 
             // code here
+            int elem = 1;
+            int i = 0;
+
+            while (elem < limit)
+            {
+                elem *= 2;
+                answer = answer + elem;
+                i++;
+            }
 
             // end
 
@@ -72,6 +128,14 @@ namespace Lab2
             int answer = 0;
 
             // code here
+            int i = 0;
+            
+            while (L > Da)
+            {
+                L = L / 2.0;
+                i++;
+            }
+            answer = i;
 
             // end
 
@@ -83,6 +147,28 @@ namespace Lab2
             double SY = 0;
 
             // code here
+            for (double x = a; x <= b + 0.0001; x += h)
+            {
+                double term = x;
+                double S = 0;
+                int i = 0;
+
+                while (true)
+                {
+                    S += term;
+
+                    if (Math.Abs(term) < E)
+                    break;
+
+                    term = -term * x * x * ((2.0 * i + 1) / (2.0 * i + 3));
+                    i++;
+                }
+
+                SS += S;
+                SY += Math.Atan(x);
+            }
+
+            return (SS, SY);
 
             // end
 
