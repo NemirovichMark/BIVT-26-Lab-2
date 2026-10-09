@@ -11,6 +11,7 @@ namespace Lab2
             double answer = 0;
             for (int i = 2; i <= n; i += 2)
             {
+                term = 1.0 / x
                 answer += (double)i / (i + 1);
             }
             return answer;
@@ -18,9 +19,11 @@ namespace Lab2
         public double Task2(int n, double x)
         {
             double answer = 1;
+            double term = 1.0 / x
             for (int i = 1; i <= n; i++)
             {
-                answer = answer + Math.Pow(x, -i);
+                answer += term;
+                term /= x;
             }
             
             return answer;
@@ -41,16 +44,18 @@ namespace Lab2
         {
             double answer = 0;
             int i = 1;
+            double xpow = x;
 
             while (true)
             {
-                double term = Math.Sin(i * Math.Pow(x, i));
+                double term = Math.Sin(i * xpow);
                 if (Math.Abs(term) < E)
                 {
                     break;
                 }
                 answer += term;
                 i++;
+                xpow *= x;
             }
             
             return answer;
@@ -59,13 +64,13 @@ namespace Lab2
         {
             int answer = 1;
             double prev = 1.0;
-            double curr = 1.0 / Math.Pow(x, answer);
+            double curr = 1.0 / x;
 
             while (Math.Abs(curr - prev) >= E)
             {
                 answer++;
                 prev = curr;
-                curr = 1.0 / Math.Pow(x, answer);
+                curr /= x;
             }
             
             return answer;
@@ -106,16 +111,16 @@ namespace Lab2
             {
                 double sumS = 0;
                 int i = 0;
+                double term = x;
 
                 while (true)
                 {
-                    double term = Math.Pow(-1, i) * Math.Pow(x, 2 * i + 1) / (2 * i + 1);
                     sumS += term;
-
                     if (Math.Abs(term) < 0.0001)
                         break;
                     
                     i++;
+                    term *= -1.0 * x * x * (2 * i - 1) / (2 * i + 1);
                 }
                 SS += sumS;
                 SY += Math.Atan(x);
