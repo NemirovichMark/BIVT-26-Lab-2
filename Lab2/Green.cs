@@ -107,29 +107,24 @@ namespace Lab2
         {
             double SS = 0;
             double SY = 0;
-            int steps = (int)Math.Round((b - a) / h);
-
-            for (int k = 0; k <= steps; k++)
+            for (double x = a; x <= b; x += h)
             {
-                double x = a + k * h;
                 double sumS = 0;
-                double term = x;
                 int i = 0;
+                double term = x;
 
                 while (true)
                 {
                     sumS += term;
                     if (Math.Abs(term) < 0.0001)
                         break;
-
+                    
                     i++;
                     term *= -1.0 * x * x * (2 * i - 1) / (2 * i + 1);
                 }
-
                 SS += sumS;
                 SY += Math.Atan(x);
             }
-            return (SS, SY);
         }
     }
 }
