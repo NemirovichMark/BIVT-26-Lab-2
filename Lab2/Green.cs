@@ -11,7 +11,7 @@ namespace Lab2
             double answer = 0;
             for (int i = 2; i <= n; i += 2)
             {
-                term = 1.0 / x
+                term = 1.0 / x;
                 answer += (double)i / (i + 1);
             }
             return answer;
@@ -19,7 +19,7 @@ namespace Lab2
         public double Task2(int n, double x)
         {
             double answer = 1;
-            double term = 1.0 / x
+            double term = 1.0 / x;
             for (int i = 1; i <= n; i++)
             {
                 answer += term;
