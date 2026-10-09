@@ -11,7 +11,6 @@ namespace Lab2
             double answer = 0;
             for (int i = 2; i <= n; i += 2)
             {
-                term = 1.0 / x;
                 answer += (double)i / (i + 1);
             }
             return answer;
