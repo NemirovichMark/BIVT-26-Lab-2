@@ -99,33 +99,33 @@ namespace Lab2
                 L /= 2.0;
                 answer++;
             }
-            
-            return answer;
-        }
         public (double SS, double SY) Task8(double a, double b, double h)
         {
             double SS = 0;
             double SY = 0;
-            for (double x = a; x <= b; x += h)
+            int steps = (int)Math.Round((b - a) / h);
+                
+            for (int k = 0; k <= steps; k++)
             {
+                double x = a + k * h; 
                 double sumS = 0;
-                int i = 0;
                 double term = x;
-
+                int i = 0;
+                    
                 while (true)
                 {
                     sumS += term;
-                    if (Math.Abs(term) < 0.0001)
+                    if (Math.Abs(term) < 0.0001) 
                         break;
-                    
+                            
                     i++;
                     term *= -1.0 * x * x * (2 * i - 1) / (2 * i + 1);
                 }
                 SS += sumS;
                 SY += Math.Atan(x);
             }
-            
             return (SS, SY);
-        }
+            }
+        }  
     }
 }
