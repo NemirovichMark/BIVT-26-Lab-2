@@ -2553,39 +2553,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Markosias\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/mariabakulina/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Markosias\\Documents\\BIVT-25\\BIVT-25-Lab-2\\Lab2test\\Lab2test.csproj",
+      "projectUniqueName": "/Users/mariabakulina/RiderProjects/BIVT-26-Lab-2/Lab2test/Lab2test.csproj",
       "projectName": "Lab2test",
-      "projectPath": "C:\\Users\\Markosias\\Documents\\BIVT-25\\BIVT-25-Lab-2\\Lab2test\\Lab2test.csproj",
-      "packagesPath": "C:\\Users\\Markosias\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Markosias\\Documents\\BIVT-25\\BIVT-25-Lab-2\\Lab2test\\obj\\",
+      "projectPath": "/Users/mariabakulina/RiderProjects/BIVT-26-Lab-2/Lab2test/Lab2test.csproj",
+      "packagesPath": "/Users/mariabakulina/.nuget/packages/",
+      "outputPath": "/Users/mariabakulina/RiderProjects/BIVT-26-Lab-2/Lab2test/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Markosias\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/mariabakulina/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Markosias\\Documents\\BIVT-25\\BIVT-25-Lab-2\\Lab2\\Lab2.csproj": {
-              "projectPath": "C:\\Users\\Markosias\\Documents\\BIVT-25\\BIVT-25-Lab-2\\Lab2\\Lab2.csproj"
+            "/Users/mariabakulina/RiderProjects/BIVT-26-Lab-2/Lab2/Lab2.csproj": {
+              "projectPath": "/Users/mariabakulina/RiderProjects/BIVT-26-Lab-2/Lab2/Lab2.csproj"
             }
           }
         }
@@ -2599,8 +2592,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.300"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -2635,7 +2627,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.425/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
