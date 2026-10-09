@@ -111,10 +111,10 @@ namespace Lab2
 
             for (int i = 0; i <= steps; k++)
             {
-                double x = a + k * h;
+                double x = a + i * h;
                 double sumS = 0;
                 double term = x;
-                int i = 0;
+                int j = 0;
 
                 while (true)
                 {
@@ -122,7 +122,7 @@ namespace Lab2
                     if (Math.Abs(term) < 0.0001)
                         break;
                     
-                    i++;
+                    j++;
                     term *= -1.0 * x * x * (2 * i - 1) / (2 * i + 1);
                 }
                 SS += sumS;
