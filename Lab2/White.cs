@@ -121,23 +121,11 @@ namespace Lab2
         public int Task8(double L, double v)
         {
             int answer = 0;
-            const double R = 6371.0; // радиус Земли, км
-
+            const double R = 6371.0;
             // code here
-            if (v <= 0) return 0; // Avoid division by zero or negative speed
-
-            // 1. Calculate the height (h) needed to see distance L
-            // Using Pythagorean theorem: R^2 + L^2 = (R + h)^2
-            // h = sqrt(R^2 + L^2) - R
+            if (v <= 0) return 0;
             double h = Math.Sqrt((R * R) + (L * L)) - R;
-
-            // 2. Calculate time = height / speed
             double timeInHours = h / v;
-
-            // 3. The method returns int. 
-            // If the test expects whole hours, we use Math.Ceiling to round up.
-            // If it expects truncation, use (int)timeInHours.
-            // Given typical lab tasks, Math.Ceiling is often safer for "how many hours".
             answer = (int)Math.Ceiling(timeInHours);
 
             // end
