@@ -109,7 +109,7 @@ namespace Lab2
             double SY = 0;
             int steps = (int)Math.Round((b - a) / h);
 
-            for (int i = 0; i <= steps; k++)
+            for (int i = 0; i <= steps; i++)
             {
                 double x = a + i * h;
                 double sumS = 0;
