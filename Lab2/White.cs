@@ -83,7 +83,7 @@ namespace Lab2
             double answer = 0;
 
             // code here
-            double term = 1;
+            double term = 1; 
             double xSquare = x * x;
 
             while (term >= E)
