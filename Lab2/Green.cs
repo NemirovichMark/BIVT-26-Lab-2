@@ -116,12 +116,13 @@ namespace Lab2
                 double term = x;
                 int j = 0;
 
-                while (Math.Abs(x) < 1.0)
+                while (true)
                 {
                     sumS += term;
                     if (Math.Abs(term) < 0.0001)
                         break;
-                    
+                    if (Math.Abs(x) >= 1.0)
+                        break;
                     j++;
                     term *= -1.0 * x * x * (2.0 * j - 1) / (2.0 * j + 1);
                 }
