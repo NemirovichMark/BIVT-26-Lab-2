@@ -107,7 +107,7 @@ namespace Lab2
         {
             double SS = 0;
             double SY = 0;
-            int steps = (int)Math.Round((b - a) / h);
+            int steps = (int)((b - a) / h);
 
             for (int i = 0; i <= steps; i++)
             {
