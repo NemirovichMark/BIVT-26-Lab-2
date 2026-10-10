@@ -123,7 +123,7 @@ namespace Lab2
                         break;
                     
                     j++;
-                    term *= -1.0 * x * x * (2 * j - 1) / (2 * j + 1);
+                    term *= -1.0 * x * x * (2.0 * j - 1) / (2.0 * j + 1);
                 }
                 SS += sumS;
                 SY += Math.Atan(x);
