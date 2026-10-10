@@ -19,9 +19,9 @@ namespace Lab2
                 double xtut = 1;
                 for (int j = 0; j < i; j++)
                 {
-                    xtut *= x;
+                    xtut *= x
                 }
-                answer += Math.Sin(x*(i+1))/xtut;
+                answer += Math.Sine(x*(i+1))/xtut;
             }
             return answer;
         }
@@ -34,7 +34,7 @@ namespace Lab2
             {
                 double f = 1;
                 double step = 5;
-                int sgn = -1;
+                int sgn = -1
                 for (int = j = 1; j <= i; j++)
                 {
                     f *= j;
@@ -113,7 +113,7 @@ namespace Lab2
                 zn *= x;
                 answer += elem;
                 elem = ch/zn;
-                i ++;
+                i ++
                 if (elem <= 0.0001)
                 {
                     break;
@@ -189,7 +189,7 @@ namespace Lab2
                     for (int j = 1; j <= i; j++)
                     {
                         xtut *= x;
-                        itut *= j;
+                        itut *= j
                     }
                     s = (2*i+1)*xtut/itut;
                     ssumm += s;
