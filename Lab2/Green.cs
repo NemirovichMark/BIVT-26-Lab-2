@@ -116,7 +116,7 @@ namespace Lab2
                 double term = x;
                 int j = 0;
 
-                while (true)
+                while (Math.Abs(x) < 1.0)
                 {
                     sumS += term;
                     if (Math.Abs(term) < 0.0001)
