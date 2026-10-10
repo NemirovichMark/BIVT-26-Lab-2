@@ -6,64 +6,88 @@ namespace Lab2
     {
         const double E = 0.0001;
         const double Da = 0.0000000001;
+
         public double Task1(int n)
         {
             double answer = 0;
-
-            // code here
-
-            // end
-
+            for (int i = 2; i <= n; i += 2)
+            {
+                answer += (double)i / (i + 1);
+            }
             return answer;
         }
+
         public double Task2(int n, double x)
         {
-            double answer = 0;
-
-            // code here
-
-            // end
-
+            double answer = 1;
+            double term = 1.0 / x;
+            for (int i = 1; i <= n; i++)
+            {
+                answer += term;
+                term /= x;
+            }
             return answer;
         }
+
         public long Task3(int n)
         {
-            long answer = 0;
-
-            // code here
-
-            // end
-
+            long answer = 1;
+            long fsum = 1;
+            for (int i = 1; i <= n; i++)
+            {
+                fsum *= i;
+                answer += fsum;
+            }
             return answer;
         }
+
         public double Task4(double x)
         {
             double answer = 0;
+            int i = 1;
+            double x_pow = x;
 
-            // code here
-
-            // end
-
+            while (true)
+            {
+                double term = Math.Sin(i * x_pow);
+                if (Math.Abs(term) < E)
+                {
+                    break;
+                }
+                answer += term;
+                i++;
+                x_pow *= x;
+            }
             return answer;
         }
+
         public int Task5(double x)
         {
-            int answer = 0;
+            int answer = 1;
+            double prev = 1.0;
+            double curr = 1.0 / x;
 
-            // code here
-
-            // end
-
+            while (Math.Abs(curr - prev) >= E)
+            {
+                answer++;
+                prev = curr;
+                curr /= x;
+            }
             return answer;
         }
+
         public int Task6(int limit)
         {
             int answer = 0;
+            int elem = 1;
+            int i = 0;
 
-            // code here
-
-            // end
-
+            while (elem < limit)
+            {
+                elem *= 2;
+                answer += elem;
+                i++;
+            }
             return answer;
         }
 
@@ -71,21 +95,37 @@ namespace Lab2
         {
             int answer = 0;
 
-            // code here
-
-            // end
-
+            while (L > Da)
+            {
+                L /= 2.0;
+                answer++;
+            }
             return answer;
         }
+
         public (double SS, double SY) Task8(double a, double b, double h)
         {
             double SS = 0;
             double SY = 0;
+            int steps = (int)((b - a) / h);
 
-            // code here
-
-            // end
-
+            for (int i = 0; i <= steps; i++)
+            {
+                double x = a + i * h;
+                double sumS = 0;
+                double term = x;
+                int j = 0;
+                while (Math.Abs(x) < 1)
+                {
+                    sumS += term;
+                    if (Math.Abs(term) < 0.0001)
+                        break;
+                    j++;
+                    term *= -1.0 * x * x * (2.0 * j - 1) / (2.0 * j + 1);
+                }
+                SS += sumS;
+                SY += Math.Atan(x);
+            }
             return (SS, SY);
         }
     }
