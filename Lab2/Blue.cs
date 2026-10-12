@@ -13,11 +13,12 @@ namespace Lab2
 
             // code here
             double a = 1.0;
-            for (int i;i<n;i++)
+            for (int i=0;i<n;i++)
             {
-                answer = answer + Math.Sin(i * x) / a;
+                answer = answer + Math.Sin((i+1) * x) / a;
                 a = a * x;
             }
+
             // end
 
             return answer;
@@ -26,23 +27,34 @@ namespace Lab2
         {
             double answer = 0;
 
-            // code here
-            double power = 5;
-            for (double i = 1; fact = 1; i <= n; i++)
+            //code here
+            double power = 1;
+            for (double i = 1, fact = 1; i <= n; i++)
             {
                 fact *= i;
                 power *= 5;
                 if (i % 2 == 0)
                 {
-                    answer = answer - (power / fact);
+                    answer = answer + (power / fact);
                 }
                 else
                 {
-                    answer = answer + (power / fact);
+                    answer = answer - (power / fact);
                 }
 
 
             }
+
+            //int power = 5;
+            //int ch = -1;
+            //int zn = 1;
+            //for (int i = 1; i < n + 1; i++)
+            //{
+            //    answer += ch * power / zn;
+            //    ch *= -1;
+            //    power *= 5;
+            //    zn *= i;
+            //}
             // end
 
             return answer;
@@ -55,7 +67,7 @@ namespace Lab2
             int first = 0;
             int second = 1;
             int a = 0;
-            
+
             for (int i = 0; i < n; i++)
             {
                 answer += first;
@@ -72,19 +84,19 @@ namespace Lab2
             int answer = 0;
 
             // code here
-             int s = 0;
+            int s = 0;
 
-             for (int n = 1; n < 10_000; n++)
-             {
-                 int b = a + (n - 1) * h;
-            
-                 if (s + b <= L)
-                 {
-                     s += b;
-                     answer = n;
-                 }
-                 else break;
-             }
+            for (int n = 1; n < 10_000; n++)
+            {
+                int b = a + (n - 1) * h;
+
+                if (s + b <= L)
+                {
+                    s += b;
+                    answer = n;
+                }
+                else break;
+            }
             // end
 
             return answer;
@@ -94,28 +106,24 @@ namespace Lab2
             double answer = 0;
 
             // code here
-                double ch = 0, zn = 1;
-                double elem = ch / zn;
-                int i = 1;
-            
-                while (true)
-                {
-                    ch += i;
-                    zn *= x;
-                    answer += elem;
-                    elem = ch / zn;
-                    i++;
-            
-                    if (elem > 0.0001)
-                    {
-                        continue;
-                    }
-                    else break;
-                }
-    // end
+            double ch = 0, zn = 1;
+            double elem = ch / zn;
+            int i = 1;
 
-    return answer;
-}
+            while (true)
+            {
+                ch += i;
+                zn *= x;
+                answer += elem;
+                elem = ch / zn;
+                i++;
+
+                if (elem > 0.0001)
+                {
+                    continue;
+                }
+                else break;
+            }
             // end
 
             return answer;
@@ -126,17 +134,12 @@ namespace Lab2
 
             // code here
             int schet = 0;
-            
-            for (int i = 0; i < 10_000; i++)
+            while (S < L)
             {
-                while (S <= L)
-                {
-                    S *= 2;
-                    schet += 1;
-                }
-            
-                answer = schet * h;
+                S = S * 2;
+                schet = schet + 1;
             }
+            answer = schet * h;
             // end
 
             return answer;
@@ -148,18 +151,24 @@ namespace Lab2
             int c = 0;
 
             // code here
-            a = S;
-            double day = S;
-            double a0 = S;
-            
-            for (int i = 1; i < 10_000; i++)
+            double totale = S;
+            double daily = S;
+            for (int day = 1; day < 10000; day++)
             {
-                if (i == 7) a = day;
-                if (day >= 100 && b == 0) b = i;
-                if (a0 > 42 && c == 0) c = i;
-            
-                a0 += a0 / 100 * I;
-                day += a0;
+                if (day == 7 )
+                {
+                    a = totale;
+                }
+                if (totale >= 100 && b==0)
+                {
+                    b = day;
+                }
+                if (daily > 42 && c==0)
+                {
+                    c = day;
+                }
+                daily += daily / 100 * I;
+                totale += daily;
             }
             // end
 
@@ -175,8 +184,8 @@ namespace Lab2
             {
                 double fact = 1;
                 double pow = 1;
-                s = 0;
-            
+                double s = 0;
+
                 for (int i = 0; i < 10_000; i++)
                 {
                     if (i > 0)
@@ -184,13 +193,13 @@ namespace Lab2
                         fact *= i;
                         pow *= x * x;
                     }
-            
+
                     double r = (2 * i + 1) * pow / fact;
                     s += r;
-            
+
                     if (Math.Abs(r) < E) break;
                 }
-            
+
                 SS += s;
                 SY += (1 + 2 * x * x) * Math.Exp(x * x);
             }
