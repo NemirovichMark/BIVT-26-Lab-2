@@ -151,10 +151,11 @@ namespace Lab2
             int c = 0;
 
             // code here
-            double totale = S;
+            double totale = 0;
             double daily = S;
-            for (int day = 1; day < 10000; day++)
+            for (int day = 1; day >= 7 && b != 0 && c != 0; day++)
             {
+                totale += daily;
                 if (day == 7 )
                 {
                     a = totale;
@@ -163,12 +164,15 @@ namespace Lab2
                 {
                     b = day;
                 }
-                if (daily > 42 && c==0)
+                if (daily >= 42 && c==0)
                 {
                     c = day;
                 }
                 daily += daily / 100 * I;
-                totale += daily;
+                //if (day >=7 && b != 0 && c != 0)
+                //{
+                //    break;
+                //}
             }
             // end
 
