@@ -151,29 +151,57 @@ namespace Lab2
             int c = 0;
 
             // code here
-            double totale = 0;
+
+            double totale = S;
             double daily = S;
-            for (int day = 1; day >= 7 && b != 0 && c != 0; day++)
+            for (int day = 1; day < 7; day++)
             {
+                daily = daily * (1 + (I / 100));
                 totale += daily;
-                if (day == 7 )
-                {
-                    a = totale;
-                }
-                if (totale >= 100 && b==0)
-                {
-                    b = day;
-                }
-                if (daily >= 42 && c==0)
-                {
-                    c = day;
-                }
-                daily += daily / 100 * I;
-                //if (day >=7 && b != 0 && c != 0)
-                //{
-                //    break;
-                //}
             }
+            a = totale;
+            totale = S;
+            daily = S;
+
+            while (totale < 100)
+            {
+                daily = daily * (1 + (I / 100));
+                totale += daily;
+                b++;
+            }
+            b += 1;
+            daily = S;
+
+            while (daily <= 42)
+            {
+                daily = daily * (1 + (I / 100));
+                c++;
+            }
+
+
+            //double totale = 0;
+            //double daily = S;
+            //for (int day = 1; day <10000; day++)
+            //{
+            //    totale += daily;
+            //    if (day == 7 )
+            //    {
+            //        a = totale;
+            //    }
+            //    if (totale >= 100 && b==0)
+            //    {
+            //        b = day;
+            //    }
+            //    if (daily > 42 && c==0)
+            //    {
+            //        c = day;
+            //    }
+            //    daily += daily / 100 * I;
+            //    if (day >= 7 && b != 0 && c != 0)
+            //    {
+            //        break;
+            //    }
+            //}
             // end
 
             return (a, b, c);
