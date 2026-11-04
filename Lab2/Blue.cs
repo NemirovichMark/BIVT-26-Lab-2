@@ -13,6 +13,14 @@ namespace Lab2
 
             // code here
 
+            double p = 1;
+
+            for (int i = 1; i <= n; i = i + 1)
+            {
+                answer = answer + Math.Sin(i * x) / p;
+                p = p * x;
+            }
+
             // end
 
             return answer;
@@ -22,6 +30,14 @@ namespace Lab2
             double answer = 0;
 
             // code here
+
+            double term = 1;
+
+            for (int i = 1; i <= n; i = i + 1)
+            {
+                term = term * (-5) / i;
+                answer = answer + term;
+            }
 
             // end
 
@@ -33,6 +49,17 @@ namespace Lab2
 
             // code here
 
+            long f1 = 0;
+            long f2 = 1;
+
+            for (int i = 0; i < n; i = i + 1)
+            {
+                answer = answer + f1;
+                long next = f1 + f2;
+                f1 = f2;
+                f2 = next;
+            }
+
             // end
 
             return answer;
@@ -42,6 +69,16 @@ namespace Lab2
             int answer = 0;
 
             // code here
+
+            int sum = 0;
+            int number = a;
+
+            while (sum + number <= L)
+            {
+                sum = sum + number;
+                number = number + h;
+                answer = answer + 1;
+            }
 
             // end
 
@@ -53,6 +90,21 @@ namespace Lab2
 
             // code here
 
+            double ch = 0;
+            double zn = 1;
+            double elem = 0;
+            int i = 1;
+
+            do
+            {
+                ch = ch + i;
+                zn = zn * x;
+                answer = answer + elem;
+                elem = ch / zn;
+                i = i + 1;
+            }
+            while (elem > E);
+
             // end
 
             return answer;
@@ -62,6 +114,14 @@ namespace Lab2
             int answer = 0;
 
             // code here
+
+            long cells = S;
+
+            while (cells < L)
+            {
+                cells = cells * 2;
+                answer = answer + h;
+            }
 
             // end
 
@@ -75,6 +135,33 @@ namespace Lab2
 
             // code here
 
+            double k = 1 + I / 100;
+            double day = S;
+
+            for (int i = 1; i <= 7; i = i + 1)
+            {
+                a = a + day;
+                day = day * k;
+            }
+
+            day = S;
+            double sum = 0;
+
+            while (sum < 100)
+            {
+                sum = sum + day;
+                day = day * k;
+                b = b + 1;
+            }
+
+            day = S;
+
+            while (day <= 42)
+            {
+                day = day * k;
+                c = c + 1;
+            }
+
             // end
 
             return (a, b, c);
@@ -85,6 +172,26 @@ namespace Lab2
             double SY = 0;
 
             // code here
+
+            for (double x = a; x <= b + 0.000000001; x = x + h)
+            {
+                double p = 1;
+                double term = 1;
+                double sum = 0;
+                int i = 0;
+
+                do
+                {
+                    term = (2 * i + 1) * p;
+                    sum = sum + term;
+                    i = i + 1;
+                    p = p * x * x / i;
+                }
+                while (Math.Abs(term) >= E);
+
+                SS = SS + sum;
+                SY = SY + (1 + 2 * x * x) * Math.Exp(x * x);
+            }
 
             // end
 
