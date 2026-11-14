@@ -147,27 +147,33 @@ namespace Lab2
             double SY = 0;
 
             // code here
-            for (double x = a; x <= b; x += h)
-            {
-                double term = x;
-                double sum = 0;
-                int i = 0;
+            
+int count = (int)Math.Floor((b - a) / h + 0.000000001);
 
-                while (true)
-                {
-                    sum += term;
+for (int step = 0; step <= count; step++)
+{
+    double x = a + step * h;
 
-                    if (Math.Abs(term) < E)
-                        break;
+    double term = x;
+    double sum = 0;
+    int i = 0;
 
-                    i++;
+    while (true)
+    {
+        sum += term;
 
-                    term *= -x * x * (2 * i - 1) / (2 * i + 1);
-                }
+        if (Math.Abs(term) < E)
+            break;
 
-                SS += sum;
-                SY += Math.Atan(x);
-            }
+        i++;
+
+        term *= -x * x * (2.0 * i - 1) / (2.0 * i + 1);
+    }
+
+    SS += sum;
+    SY += Math.Atan(x);
+}
+
             // end
 
             return (SS, SY);
