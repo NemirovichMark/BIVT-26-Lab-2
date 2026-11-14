@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Lab2
 {
@@ -26,9 +27,12 @@ namespace Lab2
             double answer = 0;
 
             // code here
+            double term = 1;
+
             for (int i = 0; i <= n; i++)
             {
-                answer += System.Math.Pow(x, -i);
+                answer += term;
+                term /= x;
             }
             // end
 
@@ -61,19 +65,20 @@ namespace Lab2
             double answer = 0;
 
             // code here
-            int n = 1;
+            double power = 1;
+            int i = 1;
 
             while (true)
             {
-                double term = System.Math.Sin(n * System.Math.Pow(x, n));
+                power *= x;
 
-                if (System.Math.Abs(term) < E)
-                {
+                double term = Math.Sin(i * power);
+
+                if (Math.Abs(term) < E)
                     break;
-                }
 
                 answer += term;
-                n++;
+                i++;
             }
             // end
 
@@ -135,36 +140,33 @@ namespace Lab2
 
             return answer;
         }
-        //checar8
+
         public (double SS, double SY) Task8(double a, double b, double h)
         {
             double SS = 0;
             double SY = 0;
 
             // code here
-            for (double x = a; x <= b + E; x += h)
+            for (double x = a; x <= b; x += h)
             {
-                double S = 0;
+                double term = x;
+                double sum = 0;
                 int i = 0;
 
                 while (true)
                 {
-                    double term = System.Math.Pow(-1, i)
-                                * System.Math.Pow(x, 2 * i + 1)
-                                / (2 * i + 1);
+                    sum += term;
 
-                    S += term;
-
-                    if (System.Math.Abs(term) < E)
-                    {
+                    if (Math.Abs(term) < E)
                         break;
-                    }
 
                     i++;
+
+                    term *= -x * x * (2 * i - 1) / (2 * i + 1);
                 }
 
-                SS += S;
-                SY += System.Math.Atan(x);
+                SS += sum;
+                SY += Math.Atan(x);
             }
             // end
 
